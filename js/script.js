@@ -170,6 +170,8 @@ $(function(){
 	var flags = $('.flags');
 	if(lang){
 		$('#selected-lang').append('<img width="16" height="16" src="img/langs/'+lang+'.png" /> '+local_names[lang]+' ('+lang+')');
+		$('title').prepend(local_names[lang]+' - ');
+		$('link[rel=icon]').attr('href','img/langs/'+lang+'.png');
 	}
 	for(k in local_names){
 		flags.append('<a href="?lang='+k+'" data-lang="'+k+'"'+(lang&&lang==k?' class="selected"':'')+'><img width="16" height="16" src="img/langs/'+k+'.png" /> '+local_names[k]+'</a>');
@@ -348,7 +350,6 @@ $(function(){
 					$(e).data('index',i).bind('sync',sync);
 				});
 				$('tr',$tbody).click(function(){
-					console.log('click');
 					selectMessage($(this).prevAll().length);
 				});
 				selectMessage(0);
