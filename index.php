@@ -2,9 +2,10 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>HyperTranslate - Surikat Localization</title>
+		<title>HyperTranslate</title>
 		<link href="css/simple-pagination.css" rel="stylesheet" type="text/css" />
 		<link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
+		<link href="img/favicon.ico" rel="icon" type="image/x-icon" />
 	</head>
 	<body>
 		<div id="errors"><p>Error</p><input type="submit" name="hideBtn" id="hideBtn" value="Hide"></div>
