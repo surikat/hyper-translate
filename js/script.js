@@ -198,7 +198,20 @@ $(function(){
 
 		var moveBy = function(num) {
 			var moveTo = getCurrentMessage() + num;
-			moveTo < msgs.length && moveTo >= 0 && selectMessage(moveTo);
+			if(moveTo < msgs.length){
+				moveTo >= 0 && selectMessage(moveTo);
+			}
+			else{
+				if($('a.page-link.next').length){
+					$('a.page-link.next').click();
+				}
+				else{
+					if($('a.page-link[href="#page-1"]').length){
+						$('a.page-link[href="#page-1"]').click();
+					}
+					selectMessage(0);
+				}
+			}
 		};
 
 		var selectMessage = function (index) {
