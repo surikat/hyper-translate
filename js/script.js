@@ -133,6 +133,7 @@ var getStats = function(){
 			});
 		};
 		
+		$('button.update_cat').off('click');
 		$('button.update_cat').click(function(){
 			$('.atline')
 				.width($(this).width())
@@ -143,6 +144,7 @@ var getStats = function(){
 			$(this).hide();
 			updater();
 		});
+		$('button.compile_cat').off('click');
 		$('button.compile_cat').click(function(){
 			$('#body_w').css('opacity',0.2);
 			messageService('exportCatalogue',[lang,catName],function(){
