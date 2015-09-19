@@ -20,8 +20,8 @@ class getTextExtractorTemplix extends getTextExtractor{
 		$TML('*')->each(function($el)use(&$msg,$filename){
 			foreach($el->attributes as $k=>$v){
 				$v = trim($v);
-				if(strpos($k,'i18n-')===0&&$v)
-					$msg .= "#: $filename \nmsgid ".self::quote($v)."\nmsgstr \"\" \n\n";
+				if($v&&($k=='title'||strpos($k,'i18n-')))
+					$msg .= "#: $filename \nmsgid ".self::quote($v)."\nmsgstr \"\" \n\n";					
 			}
 		});
 		return $msg;
