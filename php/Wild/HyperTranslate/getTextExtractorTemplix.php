@@ -27,7 +27,7 @@ class getTextExtractorTemplix extends getTextExtractor{
 		$TML('*')->each(function($el)use(&$msg,$filename){
 			foreach($el->attributes as $k=>$v){
 				$v = trim($v);
-				if($v&&(($k=='title'&&strpos($v,'<?')===false)||strpos($k,'i18n-')))
+				if($v&&(($k='href'&&$el->nodeName=='a')||($k=='title'&&strpos($v,'<?')===false)||strpos($k,'i18n-')))
 					$msg .= "#: $filename \nmsgid ".self::quote($v)."\nmsgstr \"\" \n\n";					
 			}
 		});
