@@ -51,11 +51,13 @@ class MessageService {
 			->offset($offset)
 			->getAll()
 		;
-		foreach($messages as &$m) {
+		$r = [];
+		foreach($messages as $m) {
 			$m->fuzzy = strpos($m->flags,'fuzzy') !== FALSE;
 			$m->isObsolete = !!$m->isObsolete;
+			$r[] = $m;
 		}
-		return $messages;
+		return $r;
 	}
 	function getCatalogues($lang){
 		if(!$lang)
