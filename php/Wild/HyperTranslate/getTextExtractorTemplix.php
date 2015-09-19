@@ -12,6 +12,13 @@ class getTextExtractorTemplix extends getTextExtractor{
 		$msg = '';
 		$TML = new Markup($content);
 		$TML('*[ni18n]')->remove();
+		$TML('t')->each(function($el)use(&$msg,$filename){
+			$t = $el->getInner();
+			$t = trim($t);
+			if($t)
+				$msg .= "#: $filename \nmsgid ".self::quote($t)."\nmsgstr \"\" \n\n";
+			$el->remove();
+		});
 		$TML('TEXT:hasnt(PHP)')->each(function($el)use(&$msg,$filename){
 			$el = trim("$el");
 			if($el)
