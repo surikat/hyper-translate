@@ -475,3 +475,16 @@ a.top_btns {
 	position: relative;
     top: 3px;
 }
+#makepot{
+	display:block;
+	float:left;
+	margin-bottom: 10px;
+    margin-left: 12px;
+}
+#multilg_support_link{
+	float:right;
+	text-decoration: none;
+	margin-right:12px;
+	display: block;
+	color: #000;
+}

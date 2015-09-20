@@ -167,15 +167,23 @@ var getStats = function(){
 
 $(function(){
 	NotificationObj.init();
-	var flags = $('.flags');
 	if(lang){
 		$('#selected-lang').append('<img width="16" height="16" src="img/langs/'+lang+'.png" /> '+local_names[lang]+' ('+lang+') <a href="./"><img src="img/return.png" title="Return"></a>');
 		$('title').prepend(local_names[lang]+' - ');
 		$('link[rel=icon]').attr('href','img/langs/'+lang+'.png');
 	}
-	for(k in local_names){
-		flags.append('<a href="?lang='+k+'" data-lang="'+k+'"'+(lang&&lang==k?' class="selected"':'')+'><img width="16" height="16" src="img/langs/'+k+'.png" /> '+local_names[k]+'</a>');
+	var body = $('body');
+	if(!lang){
+		body.append('<div class="flags"/>');
+		var flags = $('.flags');
+		for(k in local_names){
+			flags.append('<a href="?lang='+k+'" data-lang="'+k+'"'+(lang&&lang==k?' class="selected"':'')+'><img width="16" height="16" src="img/langs/'+k+'.png" /> '+local_names[k]+'</a>');
+		}
+		body.append('<a id="multilg_support_link" href="http://en.wikipedia.org/wiki/Help:Multilingual_support" target="_blank">Multilingual Support Help</a>');
 	}
+	body.append('<a id="makepot" class="top_btns" href="#">Reap text from Templates to messages.pot <span id="counter" class="top_btns"></span></a>');
+	body.append('<div id="foot"><a href="http://wildsurikat.com" target="_blank">Surikat</a> <a href="http://github.com/surikat/hyper-translate/" target="_blank">HyperTranslate</a> inspired by <a href="http://code.google.com/p/simplepo/" target="_blank">SimplePo</a></div>');
+	
 	if($('#body_w').length){
 		var msgs = {};
 		messageService('getCountMessages',[lang,catName],function(total){

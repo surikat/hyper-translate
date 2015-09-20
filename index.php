@@ -85,13 +85,6 @@
 				</div>
 			</div>
 		<?php endif;?>
-		<br>
-		<a id="makepot" class="top_btns" href="#">Reap text from Templates to messages.pot <span id="counter" class="top_btns"></span></a>
-		<div class="flags"></div>
-		<a href="http://en.wikipedia.org/wiki/Help:Multilingual_support" target="_blank" style="float:right;">Multilingual Support Help</a>
-		<div id="foot">
-			<a href="http://wildsurikat.com" target="_blank">Surikat</a> <a href="http://github.com/surikat/hyper-translate/" target="_blank">HyperTranslate</a> inspired by <a href="http://code.google.com/p/simplepo/" target="_blank">SimplePo</a>
-		</div>
 		<script src="js/js.pack.js" type="text/javascript"></script>
 		<script type="text/javascript">$js(true,[
 			'jquery.min',
