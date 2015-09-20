@@ -14,6 +14,7 @@ CREATE TABLE "message" (
 	"reference" text,
 	"flags" text,
 	"isObsolete" integer,
+	"noTranslate" integer,
 	"previousUntranslatedString" text,
 	"updatedAt" NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	FOREIGN KEY ("catalogue_id") REFERENCES "catalogue" ("id") ON DELETE CASCADE ON UPDATE CASCADE

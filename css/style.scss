@@ -286,7 +286,7 @@ a.top_btns{
 	padding:6px 0;
 	cursor:pointer;
 }
-#msg_table td.fuzzy,#msg_table td.depr,#msg_table_head th.fuzzy,#msg_table_head th.depr {
+#msg_table td.fuzzy, #msg_table td.notr, #msg_table td.depr,#msg_table_head th.fuzzy, #msg_table_head th.notr,#msg_table_head th.depr {
 	width:30px;
 	text-align:center;
 }
@@ -302,6 +302,9 @@ a.top_btns{
 	background-color:#FFFFDD;
 	font-weight:bold;
 }
+#msg_table tr.n td {
+  color: #2f2;
+}
 #msg_table tr.d td {
 	color:#999;
 }
@@ -312,11 +315,11 @@ a.top_btns{
 	background-color:#136ACA;
 	color:#FFF;
 }
-#msg_table tr.f td.fuzzy, #msg_table tr.d td.depr {
+#msg_table tr.f td.fuzzy, #msg_table tr.n td.notr, #msg_table tr.d td.depr {
 	color:#F00;
 	font-weight:bold;
 }
-#msg_table tr.selected.f td.fuzzy, #msg_table tr.selected.d td.depr {
+#msg_table tr.selected.f td.fuzzy, ,#msg_table tr.selected.n td.notr, #msg_table tr.selected.d td.depr {
 	color:#000;
 }
 #msg_table td div {
@@ -386,4 +389,18 @@ a.top_btns{
 	text-decoration: underline;
 	font-weight:bold;
 	color:#f00;
+}
+
+.block fieldset{
+	margin:0;
+	padding:0;
+	border:0;
+	float:left;
+}
+#cntrl_blk fieldset label{
+	min-width:90px;
+}
+#cntrl_blk fieldset input{
+	position: relative;
+    top: 3px;
 }

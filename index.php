@@ -51,7 +51,12 @@
 						</div>
 						<div class="block" id="cntrl_blk">
 							<input type="submit" id="next" name="next" value="Next Message &raquo;" />
-							<label for="fuzz">Mark as Fuzzy</label> <input type="checkbox" id="fuzz" name="fuzz" /> 
+							<fieldset>
+								<label for="fuzz">Mark as Fuzzy</label> <input type="checkbox" id="fuzz" name="fuzz" /> 
+							</fieldset>
+							<fieldset>
+								<label for="notr">No Translate</label> <input type="checkbox" id="notr" name="notr" /> 
+							</fieldset>
 						</div>
 					</div>
 					<div id="message_container">
@@ -62,8 +67,9 @@
 										<div><img src="img/blank.gif"/>Original String</div>
 									</th>
 									<th class="msgstr"><img src="img/blank.gif"/>Translation</th>
-									<th class="fuzzy"><img src="img/blank.gif"/>F</th>
-									<th class="depr"><img src="img/blank.gif"/>D</th>
+									<th class="fuzzy" title="Fuzzy"><img src="img/blank.gif"/>F</th>
+									<th class="notr" title="No Translate"><img src="img/blank.gif"/>N</th>
+									<th class="depr" title="Deprecated"><img src="img/blank.gif"/>D</th>
 								</tr>
 							</thead>
 						</table>

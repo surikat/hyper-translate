@@ -169,7 +169,7 @@ $(function(){
 	NotificationObj.init();
 	var flags = $('.flags');
 	if(lang){
-		$('#selected-lang').append('<img width="16" height="16" src="img/langs/'+lang+'.png" /> '+local_names[lang]+' ('+lang+')');
+		$('#selected-lang').append('<img width="16" height="16" src="img/langs/'+lang+'.png" /> '+local_names[lang]+' ('+lang+') <a href="./"><img src="img/return.png" title="Return"></a>');
 		$('title').prepend(local_names[lang]+' - ');
 		$('link[rel=icon]').attr('href','img/langs/'+lang+'.png');
 	}
@@ -228,13 +228,14 @@ $(function(){
 			if ( !$('#msg_table tr.selected').length ) return;
 			var $row = $('#msg_table tr:eq(' + getCurrentMessage() + ')');
 			var msg = msgs[$row.data('index')];
-			var dirty = $('#msgstr').val() != msg.msgstr || $('#comments').val() != msg.comments || $('#fuzz').prop('checked') != msg.fuzzy;
+			var dirty = $('#msgstr').val() != msg.msgstr || $('#comments').val() != msg.comments || $('#fuzz').prop('checked') != msg.fuzzy || $('#notr').prop('checked') != msg.noTranslate;
 			if (dirty) {
 				msg.msgstr = $('#msgstr').val().replace(/\n+$/,'');
 				msg.fuzzy = $('#fuzz').prop('checked');
+				msg.noTranslate = $('#notr').prop('checked');
 				msg.comments = $('#comments').val();
 				$row.trigger('sync');
-				messageService('updateMessage', [msg.id, msg.comments, msg.msgstr, msg.fuzzy],function(){
+				messageService('updateMessage', [msg.id, msg.comments, msg.msgstr, msg.fuzzy, msg.noTranslate],function(){
 					getStats();
 				});
 			}
@@ -246,12 +247,14 @@ $(function(){
 			$row2.find('td.msgid div').text(msg2.msgid).end().find('td.msgstr div').text(msg2.msgstr);
 			msg2.msgstr == "" ? $row2.addClass('empty') : $row2.removeClass('empty');
 			msg2.fuzzy == 1 ? $row2.addClass('f').find('.fuzzy').text('F') : $row2.removeClass('f').find('.fuzzy').text('');
+			msg2.noTranslate == 1 ? $row2.addClass('n').find('.notr').text('N') : $row2.removeClass('n').find('.notr').text('');
 			msg2.isObsolete && $row2.addClass('d').find('.depr').text('D');
 		};
 		var renderRowAsString = function(obj) {
 			var tr_class = "" 
 				+ (!obj.msgstr.length ? 'empty ' : '')
 				+ (obj.fuzzy == 1 ? 'f ' : '')
+				+ (obj.noTranslate == 1 ? 'n ' : '')
 				+ (obj.isObsolete ? 'd ' : ''); 
 			return	''
 				+	'<tr class="' + tr_class + '"><td class="msgid"><div><span>'
@@ -260,6 +263,9 @@ $(function(){
 				+ (obj.msgstr?escape(obj.msgstr):'') + '</div></td>'
 				+ '<td class="fuzzy">'
 				+ (obj.fuzzy == 1 ? 'F' : '')
+				+ '</td>'
+				+ '<td class="notr">'
+				+ (obj.noTranslate == 1 ? 'N' : '')
 				+ '</td>'
 				+ '<td class="depr">'
 				+ (obj.isObsolete ? 'D' : '')
@@ -276,6 +282,7 @@ $(function(){
 			$('#msgid').html( nl2br(escape(msg.msgid)) || "-" );
 			$('#msgstr').val(msg.msgstr?msg.msgstr:'');
 			( msg.fuzzy == 1 ) ? $('#fuzz').prop('checked',true) : $('#fuzz').prop('checked',false);
+			( msg.noTranslate == 1 ) ? $('#notr').prop('checked',true) : $('#notr').prop('checked',false);
 			$('#edit_id').attr( 'value', msg.id );
 		};
 			
@@ -376,6 +383,9 @@ $(function(){
 			$('#msgstr').focus();
 		});
 		$('#fuzz').click(function(){
+			beforeBlur();
+		});
+		$('#notr').click(function(){
 			beforeBlur();
 		});
 		$('#msgstr').blur(function(e){

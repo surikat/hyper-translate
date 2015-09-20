@@ -72,9 +72,9 @@ class MessageService {
 		//return $this->db->getRow("SELECT c.name,c.id,COUNT(*) as message_count, COALESCE(SUM(LENGTH(m.msgstr) >0),0) as translated_count FROM catalogue c LEFT JOIN message m ON m.catalogue_id=c.id WHERE c.id=? GROUP BY c.id",[$this->cat($lang,$name)->id()]);
 		return $this->db->getRow("SELECT c.name,c.id,COUNT(*) as message_count, COALESCE(SUM(LENGTH(m.msgstr) >0),0) as translated_count FROM catalogue c LEFT JOIN message m ON m.catalogue_id=c.id WHERE c.lang=? AND c.name=? GROUP BY c.id",[$lang,$name]);
 	}
-	function updateMessage($id, $comments, $msgstr, $fuzzy){
+	function updateMessage($id, $comments, $msgstr, $fuzzy, $notranslate){
 		$flags = $fuzzy&&$fuzzy!='false' ? 'fuzzy' : '';
-		$this->db->execute("UPDATE message SET comments=?, msgstr=?, flags=? WHERE id=?", [$comments, $msgstr, $flags, $id]);
+		$this->db->execute("UPDATE message SET comments=?, msgstr=?, flags=?, noTranslate=? WHERE id=?", [$comments, $msgstr, $flags, $notranslate, $id]);
 	}
 	function importCatalogue($lang,$name,$atline=null){
 		if($lang&&$name)
