@@ -152,11 +152,10 @@ var getStats = function(){
 			});
 		});
 		
-		$('.progressbar .inner')
-			.css( 'width',
-				$('.progressbar').width()	* 
-				( cat.translated_count / (cat.message_count))
-			);
+		var pbw = $('.progressbar').width()	* ( cat.translated_count / (cat.message_count));
+		if(pbw)
+			pbw += 1;
+		$('.progressbar .inner').css( 'width',pbw);
 		
 		$('.translated').text(cat.translated_count?cat.translated_count:0);
 		$('.total').text(cat.message_count?cat.message_count:0);
