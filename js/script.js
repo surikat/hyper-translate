@@ -210,14 +210,35 @@ $(function(){
 				moveTo >= 0 && selectMessage(moveTo);
 			}
 			else{
+				var pageCallback;
 				if($('a.page-link.next').length){
-					$('a.page-link.next').click();
+					pageCallback = function(){
+						$('a.page-link.next').click();
+					};
 				}
 				else{
-					if($('a.page-link[href="#page-1"]').length){
-						$('a.page-link[href="#page-1"]').click();
-					}
-					selectMessage(0);
+					pageCallback = function(){
+						if($('a.page-link[href="#page-1"]').length){
+							$('a.page-link[href="#page-1"]').click();
+						}
+						selectMessage(0);
+					};
+				}
+				if(saving){
+					var timeoutCallback = function(){
+						setTimeout(function(){
+							if(saving){
+								timeoutCallback();
+							}
+							else{
+								pageCallback();
+							}			
+						},1000);
+					};
+					timeoutCallback();
+				}
+				else{
+					pageCallback();
 				}
 			}
 		};
@@ -232,18 +253,21 @@ $(function(){
 			return $('#msg_table tr.selected').prevAll().length;
 		};
 		
+		var saving;
 		var beforeBlur = function(){
 			if ( !$('#msg_table tr.selected').length ) return;
 			var $row = $('#msg_table tr:eq(' + getCurrentMessage() + ')');
 			var msg = msgs[$row.data('index')];
 			var dirty = $('#msgstr').val() != msg.msgstr || $('#comments').val() != msg.comments || $('#fuzz').prop('checked') != msg.fuzzy || $('#notr').prop('checked') != msg.noTranslate;
 			if (dirty) {
+				saving = true;
 				msg.msgstr = $('#msgstr').val().replace(/\n+$/,'');
 				msg.fuzzy = $('#fuzz').prop('checked');
 				msg.noTranslate = $('#notr').prop('checked');
 				msg.comments = $('#comments').val();
 				$row.trigger('sync');
 				messageService('updateMessage', [msg.id, msg.comments, msg.msgstr, msg.fuzzy, msg.noTranslate],function(){
+					saving = false;
 					getStats();
 				});
 			}
