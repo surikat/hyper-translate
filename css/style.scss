@@ -303,7 +303,7 @@ a.top_btns{
 	font-weight:bold;
 }
 #msg_table tr.n td {
-  color: #2f2;
+  color: #aaa;
 }
 #msg_table tr.d td {
 	color:#999;
@@ -403,4 +403,17 @@ a.top_btns{
 #cntrl_blk fieldset input{
 	position: relative;
     top: 3px;
+}
+#makepot{
+	display:block;
+	float:left;
+	margin-bottom: 10px;
+    margin-left: 12px;
+}
+#multilg_support_link{
+	float:right;
+	text-decoration: none;
+	margin-right:12px;
+	display: block;
+	color: #000;
 }
