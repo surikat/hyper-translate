@@ -30,6 +30,8 @@ class getTextExtractorTemplix extends getTextExtractor{
 				if($v&&
 					(
 						($k='href'&&$el->nodeName=='a'&&strpos($v,'://')!==false&&strpos($v,'<?')===false)
+						||($k='alt'&&$el->nodeName=='img'&&strpos($v,'<?')===false)
+						||($k='title'&&strpos($v,'<?')===false)
 						||($k=='title'&&strpos($v,'<?')===false)
 						||strpos($k,'i18n-')
 					)
