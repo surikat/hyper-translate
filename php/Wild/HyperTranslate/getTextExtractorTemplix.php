@@ -15,6 +15,7 @@ class getTextExtractorTemplix extends getTextExtractor{
 		$TML('t')->each(function($el)use(&$msg,$filename){
 			$t = $el->getInner();
 			$t = trim($t);
+			$t = preg_replace('!\s+!', ' ', $t);
 			if($t)
 				$msg .= "#: $filename \nmsgid ".self::quote($t)."\nmsgstr \"\" \n\n";
 			$el->remove();
