@@ -22,8 +22,7 @@
 						</div>
 					</div>
 					<div id="actions">
-						<button class="update_cat">Update</button>
-						<div class="atline"></div>
+						<button class="update_cat">ImportPOT</button>
 						<button class="compile_cat">Compile</button>
 					</div>
 					<button id="clean_obsolete">Clean obsoletes</button>
@@ -85,6 +84,7 @@
 				</div>
 			</div>
 		<?php endif;?>
+		<div class="atline"></div>
 		<script src="js/js.pack.js" type="text/javascript"></script>
 		<script type="text/javascript">$js(true,[
 			'jquery.min',

@@ -36,7 +36,11 @@ a.top_btns {
 
 .atline {
   display: none;
-  float: left; }
+  float: left;
+  position: fixed;
+  top: 10%;
+  font-size:2em;
+}
 
 #body_w {
   height: 610px;
@@ -431,7 +435,7 @@ a.top_btns {
   position: relative;
   display: blowk;
   left: 385px;
-  width: 400px; }
+  }
 
 .flags {
   margin-top: 5px;

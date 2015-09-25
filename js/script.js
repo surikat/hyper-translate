@@ -118,12 +118,12 @@ var getStats = function(){
 	messageService("getStats", [lang,catName], function(cat){
 		if(cat.message_count)
 			cat.message_count = cat.message_count;
-		var updater;
+		var updater,ttlines;
 		updater = function(t){
 			messageService('importCatalogue',[lang,catName,t],function(data){
 				if(data.timeout){
 					updater(data.timeout);
-					$('.atline').text('line: '+data.timeout+' ...');
+					$('.atline').html('importing from POT<br>line: '+data.timeout+'/'+ttlines+'<br>Please wait...');
 				}
 				else{
 					$('.atline').hide();
@@ -135,14 +135,17 @@ var getStats = function(){
 		
 		$('button.update_cat').off('click');
 		$('button.update_cat').click(function(){
-			$('.atline')
-				.width($(this).width())
-				.height($(this).height())
-				.text('line: 0 ...')
-				.show()
-			;
-			$(this).hide();
-			updater();
+			messageService('countPotLines',[catName],function(ttl){
+				ttlines = ttl;
+				$('#body_w').css('opacity',0.2);
+				$('.atline')
+					.width($(this).width())
+					.height($(this).height())
+					.html('importing from POT<br>line: 0/'+ttlines+'<br>Please wait...')
+					.show()
+				;
+				updater();
+			});
 		});
 		$('button.compile_cat').off('click');
 		$('button.compile_cat').click(function(){

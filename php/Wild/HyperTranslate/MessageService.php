@@ -11,7 +11,7 @@ class MessageService {
 			$cwd = SURIKAT_CWD;
 		else
 			$cwd = getcwd().'/';
-		$this->dbPath = $cwd.'.data/translations.sqlite';
+		$this->dbPath = $cwd.'langs/hyper-translate.sqlite';
 		$this->db = B::selectDatabase('translation','sqlite:'.$this->dbPath);
 		if(!is_file($this->dbPath)){
 			foreach(explode(';',file_get_contents(__DIR__.'/install.sql')) as $l)
@@ -76,6 +76,10 @@ class MessageService {
 		$notranslate = (int)($notranslate&&$notranslate=='true');
 		$this->db->execute("UPDATE message SET comments=?, msgstr=?, flags=?, noTranslate=? WHERE id=?", [$comments, $msgstr, $flags, $notranslate, $id]);
 	}
+	function countPotLines($name){
+		if($name)
+			return count(file($this->potfile));
+	}
 	function importCatalogue($lang,$name,$atline=null){
 		if($lang&&$name)
 			return $this->cat($lang,$name)->import($this->potfile,$atline);
@@ -116,8 +120,8 @@ class MessageService {
 		file_put_contents($potfile,$pot);
 	}
 	function countPotMessages(){
-		//return (new POParser())->countEntriesFromStream(fopen('langs/messages.pot', 'r'));
 		if(is_file('langs/messages.pot'))
-			return count(Po::fromFile('langs/messages.pot')->getArrayCopy());
+			return (new POParser())->countEntriesFromStream(fopen('langs/messages.pot', 'r'));
+			//return count(Po::fromFile('langs/messages.pot')->getArrayCopy());
 	}
 }

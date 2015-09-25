@@ -1,6 +1,7 @@
 <?php
 include __DIR__.'/php/Gettext/autoloader.php';
 include __DIR__.'/php/Wild/DataMap/autoload.inc.php';
+//include __DIR__.'/php/Wild/Templix/autoload.inc.php';
 include __DIR__.'/php/Wild/HyperTranslate/autoload.inc.php';
 header('Content-Type: application/json; charset=UTF-8;');
 $cwd = defined('SURIKAT_CWD')?SURIKAT_CWD:'../';

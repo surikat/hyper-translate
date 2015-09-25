@@ -83,7 +83,7 @@ class POParser{
 	}
 	function countEntriesFromStream($fh) {
 		$this->lineNumber = 0;
-		$entry_count = -3;
+		$entry_count = -1;
 		while(($line = fgets($fh)) !== false ){
 			$this->lineNumber++;
 			$line = $this->parseLine($line);
