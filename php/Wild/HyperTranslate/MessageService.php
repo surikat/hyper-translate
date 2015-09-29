@@ -59,10 +59,7 @@ class MessageService {
 		}
 		return $r;
 	}
-	function getCatalogues($lang){
-		if(!$lang)
-			return;
-		$this->cat($lang,'messages');
+	function getCatalogues(){
 		$names = [];
 		foreach(glob('langs/*.pot') as $name)
 			$names[] = pathinfo($name,PATHINFO_FILENAME);

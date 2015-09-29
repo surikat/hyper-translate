@@ -1,12 +1,4 @@
-//ISO 639-1 (alpha2)
-
-//in their respectives languages
 var local_names = {"aa":"Afaraf","ab":"Аҧсуа","ae":"Avesta","af":"Afrikaans","ak":"Akan","am":"አማርኛ","an":"Aragonés","ar":"‫العربية","as":"অসমীয়া","av":"авар мацӀ","ay":"Aymar aru","az":"Azərbaycan dili","ba":"башҡорт теле","be":"Беларуская","bg":"български език","bh":"भोजपुरी","bi":"Bislama","bm":"Bamanankan","bn":"বাংলা","bo":"བོད་ཡིག","br":"Brezhoneg","bs":"Bosanski jezik","ca":"Català","ce":"нохчийн мотт","ch":"Chamoru","co":"Corsu","cr":"ᓀᐦᐃᔭᐍᐏᐣ","cs":"Česky","cu":"Словѣньскъ","cv":"чӑваш чӗлхи","cy":"Cymraeg","da":"Dansk","de":"Deutsch","dv":"‫ދިވެހި","dz":"རྫོང་ཁ","ee":"Ɛʋɛgbɛ","el":"Ελληνικά","en":"English","eo":"Esperanto","es":"Español","et":"Eesti keel","eu":"Euskara","fa":"‫فارسی","ff":"Fulfulde","fi":"Suomen kieli","fj":"Vosa Vakaviti","fo":"Føroyskt","fr":"Français","fy":"Frysk","ga":"Gaeilge","gd":"Gàidhlig","gl":"Galego","gn":"Avañe'ẽ","gu":"ગુજરાતી","gv":"Ghaelg","ha":"‫هَوُسَ","he":"‫עברית","hi":"हिन्दी","ho":"Hiri Motu","hr":"Hrvatski","ht":"Kreyòl ayisyen","hu":"magyar","hy":"Հայերեն","hz":"Otjiherero","ia":"Interlingua","id":"Bahasa Indonesia","ie":"Interlingue","ig":"Igbo","ii":"ꆇꉙ","ik":"Iñupiaq","io":"Ido","is":"Íslenska","it":"Italiano","iu":"ᐃᓄᒃᑎᑐᑦ","ja":"日本語 (にほんご)","jv":"Basa Jawa","ka":"ქართული","kg":"KiKongo","ki":"Gĩkũyũ","kj":"Kuanyama","kk":"Қазақ тілі","kl":"Kalaallisut","km":"ភាសាខ្មែរ","kn":"ಕನ್ನಡ","ko":"한국어 (韓國語)","kr":"Kanuri","ks":"कश्मीरी","ku":"Kurdî","kv":"коми кыв","kw":"Kernewek","ky":"кыргыз тили","la":"Latine","lb":"Lëtzebuergesch","lg":"Luganda","li":"Limburgs","ln":"Lingála","lo":"ພາສາລາວ","lt":"Lietuvių kalba","lu":"kiluba","lv":"Latviešu valoda","mg":"Fiteny malagasy","mh":"Kajin M̧ajeļ","mi":"Te reo Māori","mk":"македонски јазик","ml":"മലയാളം","mn":"Монгол","mo":"лимба молдовеняскэ","mr":"मराठी","ms":"Bahasa Melayu","mt":"Malti","my":"ဗမာစာ","na":"Ekakairũ Naoero","nb":"Norsk bokmål","nd":"isiNdebele","ne":"नेपाली","ng":"Owambo","nl":"Nederlands","nn":"Norsk nynorsk","no":"Norsk","nr":"Ndébélé","nv":"Diné bizaad","ny":"ChiCheŵa","oc":"Occitan","oj":"ᐊᓂᔑᓈᐯᒧᐎᓐ","om":"Afaan Oromoo","or":"ଓଡ଼ିଆ","os":"Ирон æвзаг","pa":"ਪੰਜਾਬੀ","pi":"पािऴ","pl":"Polski","ps":"‫پښتو","pt":"Português","qu":"Runa Simi","rm":"Rumantsch grischun","rn":"kiRundi","ro":"Română","ru":"русский язык","rw":"Kinyarwanda","sa":"संस्कृतम्","sc":"sardu","sd":"सिन्धी","se":"Davvisámegiella","sg":"Yângâ tî sängö","si":"සිංහල","sk":"Slovenčina","sl":"Slovenščina","sm":"Gagana fa'a Samoa","sn":"chiShona","so":"Soomaaliga","sq":"Shqip","sr":"српски језик","ss":"SiSwati","st":"seSotho","su":"Basa Sunda","sv":"Svenska","sw":"Kiswahili","ta":"தமிழ்","te":"తెలుగు","tg":"тоҷикӣ","th":"ไทย","ti":"ትግርኛ","tk":"Türkmen","tl":"Tagalog","tn":"seTswana","to":"faka Tonga","tr":"Türkçe","ts":"xiTsonga","tt":"татарча","tw":"Twi","ty":"Reo Mā`ohi","ug":"Uyƣurqə","uk":"українська мова","ur":"‫اردو","uz":"O'zbek","ve":"tshiVenḓa","vi":"Tiếng Việt","vo":"Volapük","wa":"Walon","wo":"Wollof","xh":"isiXhosa","yi":"‫ייִדיש","yo":"Yorùbá","za":"Saɯ cueŋƅ","zh":"中文, 汉语, 漢語","zu":"isiZulu"};
-//in english
-//var local_names = {"aa":"Afar","ab":"Abkhazian","ae":"Avestan","af":"Afrikaans","ak":"Akan","am":"Amharic","an":"Aragonese","ar":"Arabic","as":"Assamese","av":"Avaric","ay":"Aymara","az":"Azerbaijani","ba":"Bashkir","be":"Belarusian","bg":"Bulgarian","bh":"Bihari","bi":"Bislama","bm":"Bambara","bn":"Bengali","bo":"Tibetan","br":"Breton","bs":"Bosnian","ca":"Catalan","ce":"Chechen","ch":"Chamorro","co":"Corsican","cr":"Cree","cs":"Czech","cu":"Old Church Slavonic","cv":"Chuvash","cy":"Welsh","da":"Danish","de":"German","dv":"Divehi","dz":"Dzongkha","ee":"Ewe","el":"Greek","en":"English","eo":"Esperanto","es":"Spanish","et":"Estonian","eu":"Basque","fa":"Persian","ff":"Fulah","fi":"Finnish","fj":"Fijian","fo":"Faroese","fr":"French","fy":"Western Frisian","ga":"Irish","gd":"Scottish Gaelic","gl":"Galician","gn":"Guarani","gu":"Gujarati","gv":"Manx","ha":"Hausa","he":"Hebrew","hi":"Hindi","ho":"Hiri Motu","hr":"Croatian","ht":"Haitian","hu":"Hungarian","hy":"Armenian","hz":"Herero","ia":"Interlingua","id":"Indonesian","ie":"Interlingue","ig":"Igbo","ii":"Sichuan Yi","ik":"Inupiaq","io":"Ido","is":"Icelandic","it":"Italian","iu":"Inuktitut","ja":"Japanese","jv":"Javanese","ka":"Georgian","kg":"Kongo","ki":"Kikuyu","kj":"Kwanyama","kk":"Kazakh","kl":"Kalaallisut","km":"Khmer","kn":"Kannada","ko":"Korean","kr":"Kanuri","ks":"Kashmiri","ku":"Kurdish","kv":"Komi","kw":"Cornish","ky":"Kirghiz","la":"Latin","lb":"Luxembourgish","lg":"Ganda","li":"Limburgish","ln":"Lingala","lo":"Lao","lt":"Lithuanian","lu":"Luba-Katanga","lv":"Latvian","mg":"Malagasy","mh":"Marshallese","mi":"Māori","mk":"Macedonian","ml":"Malayalam","mn":"Mongolian","mo":"Moldavian","mr":"Marathi","ms":"Malay","mt":"Maltese","my":"Burmese","na":"Nauru","nb":"Norwegian Bokmål","nd":"North Ndebele","ne":"Nepali","ng":"Ndonga","nl":"Dutch","nn":"Norwegian Nynorsk","no":"Norwegian","nr":"South Ndebele","nv":"Navajo","ny":"Chichewa","oc":"Occitan","oj":"Ojibwa","om":"Oromo","or":"Oriya","os":"Ossetian","pa":"Panjabi","pi":"Pāli","pl":"Polish","ps":"Pashto","pt":"Portuguese","qu":"Quechua","rm":"Romansh","rn":"Kirundi","ro":"Romanian","ru":"Russian","rw":"Kinyarwanda","sa":"Sanskrit","sc":"Sardinian","sd":"Sindhi","se":"Northern Sami","sg":"Sango","si":"Sinhalese","sk":"Slovak","sl":"Slovene","sm":"Samoan","sn":"Shona","so":"Somali","sq":"Albanian","sr":"Serbian","ss":"Swati","st":"Sotho","su":"Sundanese","sv":"Swedish","sw":"Swahili","ta":"Tamil","te":"Telugu","tg":"Tajik","th":"Thai","ti":"Tigrinya","tk":"Turkmen","tl":"Tagalog","tn":"Tswana","to":"Tonga","tr":"Turkish","ts":"Tsonga","tt":"Tatar","tw":"Twi","ty":"Tahitian","ug":"Uighur","uk":"Ukrainian","ur":"Urdu","uz":"Uzbek","ve":"Venda","vi":"Viêt Namese","vo":"Volapük","wa":"Walloon","wo":"Wolof","xh":"Xhosa","yi":"Yiddish","yo":"Yoruba","za":"Zhuang","zh":"Chinese","zu":"Zulu"};
-//in french
-//var local_names = {"aa":"Afar","ab":"Abkhaze","ae":"Avestique","af":"Afrikaans","ak":"Akan","am":"Amharique","an":"Aragonais","ar":"Arabe","as":"Assamais","av":"Avar","ay":"Aymara","az":"Azéri","ba":"Bachkir","be":"Biélorusse","bg":"Bulgare","bh":"Bihari","bi":"Bichelamar","bm":"Bambara","bn":"Bengalî","bo":"Tibétain","br":"Breton","bs":"Bosnien","ca":"Catalan","ce":"Tchétchène","ch":"Chamorro","co":"Corse","cr":"Cri","cs":"Tchèque","cu":"Vieux slave","cv":"Tchouvache","cy":"Gallois","da":"Danois","de":"Allemand","dv":"Dhivehi","dz":"Dzongkha","ee":"Ewe","el":"Grec moderne","en":"Anglais","eo":"Espéranto","es":"Espagnol","et":"Estonien","eu":"Basque","fa":"Persan","ff":"Peul","fi":"Finnois","fj":"Fidjien","fo":"Féringien","fr":"Français","fy":"Frison","ga":"Irlandais","gd":"Écossais","gl":"Galicien","gn":"Guarani","gu":"Gujarâtî","gv":"Mannois","ha":"Haoussa","he":"Hébreu","hi":"Hindî","ho":"Hiri motu","hr":"Croate","ht":"Créole haïtien","hu":"Hongrois","hy":"Arménien","hz":"Héréro","ia":"Interlingua","id":"Indonésien","ie":"Occidental","ig":"Igbo","ii":"Yi","ik":"Inupiaq","io":"Ido","is":"Islandais","it":"Italien","iu":"Inuktitut","ja":"Japonais","jv":"Javanais","ka":"Géorgien","kg":"Kikongo","ki":"Kikuyu","kj":"Kuanyama","kk":"Kazakh","kl":"Kalaallisut","km":"Khmer","kn":"Kannara","ko":"Coréen","kr":"Kanouri","ks":"Kashmiri","ku":"Kurde","kv":"Komi","kw":"Cornique","ky":"Kirghiz","la":"Latin","lb":"Luxembourgeois","lg":"Ganda","li":"Limbourgeois","ln":"Lingala","lo":"Lao","lt":"Lituanien","lu":"Luba-katanga","lv":"Letton","mg":"Malgache","mh":"Marshallais","mi":"Maori de Nouvelle-Zélande","mk":"Macédonien","ml":"Malayalam","mn":"Mongol","mo":"Moldave","mr":"Marâthî","ms":"Malais","mt":"Maltais","my":"Birman","na":"Nauruan","nb":"Norvégien Bokmål","nd":"Ndébélé du Nord","ne":"Népalais","ng":"Ndonga","nl":"Néerlandais","nn":"Norvégien Nynorsk","no":"Norvégien","nr":"Ndébélé du Sud","nv":"Navajo","ny":"Chichewa","oc":"Occitan","oj":"Ojibwé","om":"Oromo","or":"Oriya","os":"Ossète","pa":"Panjâbî","pi":"Pâli","pl":"Polonais","ps":"Pachto","pt":"Portugais","qu":"Quechua","rm":"Romanche","rn":"Kirundi","ro":"Roumain","ru":"Russe","rw":"Kinyarwanda","sa":"Sanskrit","sc":"Sarde","sd":"Sindhi","se":"Same du Nord","sg":"Sango","si":"Cingalais","sk":"Slovaque","sl":"Slovène","sm":"Samoan","sn":"Shona","so":"Somali","sq":"Albanais","sr":"Serbe","ss":"Siswati","st":"Sotho du Sud","su":"Soundanais","sv":"Suédois","sw":"Swahili","ta":"Tamoul","te":"Télougou","tg":"Tadjik","th":"Thaï","ti":"Tigrinya","tk":"Turkmène","tl":"Tagalog","tn":"Tswana","to":"Tongien","tr":"Turc","ts":"Tsonga","tt":"Tatar","tw":"Twi","ty":"Tahitien","ug":"Ouïghour","uk":"Ukrainien","ur":"Ourdou","uz":"Ouzbek","ve":"Venda","vi":"Vietnamien","vo":"Volapük","wa":"Wallon","wo":"Wolof","xh":"Xhosa","yi":"Yiddish","yo":"Yoruba","za":"Zhuang","zh":"Chinois","zu":"Zoulou"};
-
 var escape = function(str) {
 	if(str)
 		return str.replace(/&/g,'&amp;').replace(/>/g,'&gt;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
@@ -15,19 +7,45 @@ var nl2br = function(str) {
 	if(str)
 		return str.replace("\n",'<br />');
 };
-var messageService = function(method,params,callback,error_handler) {
+var messageService = function(method,params,callback,complete) {
+	var url = 'RPC.php?method='+method;
 	$.ajax({
-		url:'RPC.php?method='+method,
+		url:url,
 		type:'POST',
 		data:{
 			"params":params
 		},
 		success: function(obj){
-			if(obj.error) {
-				error_handler ? error_handler(obj.error) : NotificationObj.showError(obj.error.message + "	" + method);
-			} else {
+			if(obj.error){
+				NotificationObj.showError(obj.error.message + "	" + method);
+			}
+			else{
 				callback(obj.result);
 			}
+		},
+		error: function(xhr, status, error){
+			var message = 'Ajax error on url "RPC.php?method='+method+'"<br>';
+			if(error)
+				message += 'Error: '+error+'<br>';
+			if(xhr.responseText!=""){
+				var jsonResponseText = $.parseJSON(xhr.responseText);
+				var jsonResponseStatus = '';
+				$.each(jsonResponseText, function(name, val) {
+					if(name=="ResponseStatus") {
+						jsonResponseStatus = $.parseJSON(JSON.stringify(val));
+						 $.each(jsonResponseStatus, function(name2, val2) {
+							 if(name2=="Message"){
+								 message = val2;
+							 }
+						 });
+					}
+				});
+			}
+			NotificationObj.showError(message);
+		},
+		complete:function(){
+			if(typeof(complete)=='function')
+				complete();
 		},
 		dataType: 'json'
 	});		 
@@ -45,6 +63,7 @@ var NotificationObj = {
 		$('<span />').html("<br />" + msg).appendTo('#errors p');
 		$('#errors').fadeIn();
 		$('#next').hide();
+		$('#prev').hide();
 	},
 	hideError: function(){
 		$('#errors').fadeOut();
@@ -59,42 +78,51 @@ var NotificationObj = {
 	}
 };
 
-var urlVars = [], hash;
-var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-var y = 0;
-for(var i = 0; i < hashes.length; i++){
-	hash = hashes[i].split('=');
-	if(hash.length){
-		urlVars[hash[0]] = hash[1];
+var getHash = function(){
+	var hash = window.location.hash;
+	if(hash.substr(0,1)=='#')
+		hash = hash.substr(1);
+	return hash;
+};
+var setHash = function(k,v){
+	var nh = getHash();
+	var cv = $hashGet(k);
+	if(cv!='')
+		nh = nhref.replace(k+'='+cv,k+'='+v);
+	else
+		nh += '&'+k+'='+v;
+	window.location.hash = '#'+nh;
+};
+
+var $hashGet = function(k,def){
+	var urlVars = [],hash;
+	var hashes = getHash().split('&');
+	var y = 0;
+	for(var i=0;i<hashes.length;i++){
+		hash = hashes[i].split('=');
+		if(hash.length){
+			urlVars[hash[0]] = hash[1];
+		}
+		else{
+			urlVars[y] = hashes[i];
+			y++;
+		}
 	}
-	else{
-		urlVars[y] = hashes[i];
-		y++;
-	}
-}
-var $get = function(k,def){
 	return typeof(urlVars[k])!='undefined'&&urlVars[k]!=''?urlVars[k]:(typeof(def)!='undefined'?def:'');
 };
 
-var
-	lang	= $get('lang'),
-	catName	= $get('name','messages'),
-	limit	= 15,
-	pages	= 1,
-	page	= parseInt($get('page',1)),
-	sorting	= $get('sorting','asc'),
-	order	= $get('order','msgid')
-;
+var lang,catName,limit,pages,page,sorting,order,id;
 
 // Get the stored catalogues
 var getCatalogues = function(){
 	 messageService('getCatalogues', [lang], function(data){
-		if (data.length == 0){
+		if(data.length==0){
 			NotificationObj.showError("No PO Catalalogues Found.");
 			return;
 		}
 		var catList = $('#catalogue_list');
-		for (var i = 0; i<data.length; ++i){
+		catList.empty();
+		for (var i=0;i<data.length;++i){
 			var opt = $("<option />");
 			opt.attr('data-name',data[i]).text(data[i]);
 			if(data[i]==catName){
@@ -104,18 +132,18 @@ var getCatalogues = function(){
 		}
 		catList.change(function(){
 			var val = $(this).val();
-			var nhref = window.location.href;
-			if($get('name')!='')
+			var nhref = getHash();
+			if($hashGet('name')!='')
 				nhref = nhref.replace('name='+catName,'name='+val);
 			else
 				nhref += '&name='+val;
-			window.location.href = nhref;
+			window.location.hash = '#'+nhref;
 		});
 	});
 	
 };
 var getStats = function(){
-	messageService("getStats", [lang,catName], function(cat){
+	messageService('getStats', [lang,catName], function(cat){
 		if(cat.message_count)
 			cat.message_count = cat.message_count;
 		var updater,ttlines;
@@ -127,14 +155,13 @@ var getStats = function(){
 				}
 				else{
 					$('.atline').hide();
-					$('button.update_cat').show();
-					window.location.href = window.location.href;
+					$('#update_cat').show();
+					load();
 				}
 			});
 		};
 		
-		$('button.update_cat').off('click');
-		$('button.update_cat').click(function(){
+		$('#update_cat').off('click').click(function(){
 			messageService('countPotLines',[catName],function(ttl){
 				ttlines = ttl;
 				$('#body_w').css('opacity',0.2);
@@ -147,8 +174,7 @@ var getStats = function(){
 				updater();
 			});
 		});
-		$('button.compile_cat').off('click');
-		$('button.compile_cat').click(function(){
+		$('#compile_cat').off('click').click(function(){
 			$('#body_w').css('opacity',0.2);
 			messageService('exportCatalogue',[lang,catName],function(){
 				$('#body_w').css('opacity',1);
@@ -167,26 +193,39 @@ var getStats = function(){
 	});
 };
 
-$(function(){
+var load = function(){
+	
+	lang	= $hashGet('lang');
+	catName	= $hashGet('name','messages');
+	id		= $hashGet('id');
+	limit	= 15;
+	pages	= 1;
+	page	= parseInt($hashGet('page',1));
+	sorting	= $hashGet('sorting','asc');
+	order	= $hashGet('order','msgid');
+	
 	NotificationObj.init();
+	var showForLang = '#edit_table,#update_cat,#compile_cat,#cat_stats,#clean_obsolete,#pagination,#selected-lang';
 	if(lang){
-		$('#selected-lang').append('<img width="16" height="16" src="img/langs/'+lang+'.png" /> '+local_names[lang]+' ('+lang+') <a href="./"><img src="img/return.png" title="Return"></a>');
-		$('title').prepend(local_names[lang]+' - ');
+		$('#selected-lang').html('<img width="16" height="16" src="img/langs/'+lang+'.png" /> '+local_names[lang]);
+		var title = $('title');
+		var originTitle = title.data('title');
+		if(!originTitle){
+			originTitle = title.text();
+			title.data('title',originTitle);
+		}
+		title.text(originTitle+' - '+local_names[lang]);
 		$('link[rel=icon]').attr('href','img/langs/'+lang+'.png');
+		$(showForLang).show();
+		$('#flags').hide();
+	}
+	else{
+		$(showForLang).hide();
+		$('#flags').show();
 	}
 	var body = $('body');
-	if(!lang){
-		body.append('<div class="flags"/>');
-		var flags = $('.flags');
-		for(k in local_names){
-			flags.append('<a href="?lang='+k+'" data-lang="'+k+'"'+(lang&&lang==k?' class="selected"':'')+'><img width="16" height="16" src="img/langs/'+k+'.png" /> '+local_names[k]+'</a>');
-		}
-		body.append('<a id="multilg_support_link" href="http://en.wikipedia.org/wiki/Help:Multilingual_support" target="_blank">Multilingual Support Help</a>');
-	}
-	body.append('<a id="makepot" class="top_btns" href="#">Reap text from Templates to messages.pot <span id="counter" class="top_btns"></span></a>');
-	body.append('<div id="foot"><a href="http://wildsurikat.com" target="_blank">Surikat</a> <a href="http://github.com/surikat/hyper-translate/" target="_blank">HyperTranslate</a> inspired by <a href="http://code.google.com/p/simplepo/" target="_blank">SimplePo</a></div>');
-	
-	if($('#body_w').length){
+	getCatalogues();
+	if(lang){
 		var msgs = {};
 		messageService('getCountMessages',[lang,catName],function(total){
 			pages = Math.ceil(total/limit);
@@ -196,35 +235,49 @@ $(function(){
 				cssStyle: 'compact-theme',
 				onPageClick: function(pageNumber, event){
 					event.preventDefault();
-					var nhref = window.location.href;
-					if($get('page')!='')
+					var nhref = getHash();
+					if($hashGet('page')!='')
 						nhref = nhref.replace('page='+page,'page='+pageNumber);
 					else
 						nhref += '&page='+pageNumber;
-					window.location.href = nhref;
+					window.location.hash = nhref;
 				}
 			});
 		});
 
 		var moveBy = function(num) {
 			var moveTo = getCurrentMessage() + num;
-			if(moveTo < msgs.length){
-				moveTo >= 0 && selectMessage(moveTo);
-			}
-			else{
+			if(moveTo > msgs.length || moveTo < 0){
 				var pageCallback;
-				if($('a.page-link.next').length){
-					pageCallback = function(){
-						$('a.page-link.next').click();
-					};
+				if(moveTo > msgs.length){
+					if($('a.page-link.next').length){
+						pageCallback = function(){
+							$('a.page-link.next').click();
+						};
+					}
+					else{
+						pageCallback = function(){
+							if($('a.page-link[href="#page-1"]').length){
+								$('a.page-link[href="#page-1"]').click();
+							}
+							selectMessage(0);
+						};
+					}
 				}
 				else{
-					pageCallback = function(){
-						if($('a.page-link[href="#page-1"]').length){
-							$('a.page-link[href="#page-1"]').click();
-						}
-						selectMessage(0);
-					};
+					if($('a.page-link.prev').length){
+						pageCallback = function(){
+							$('a.page-link.prev').click();
+						};
+					}
+					else{
+						pageCallback = function(){
+							if($('a.page-link:last-child').length){
+								$('a.page-link:last-child').click();
+							}
+							selectMessage(0);
+						};
+					}
 				}
 				if(saving){
 					var timeoutCallback = function(){
@@ -243,9 +296,12 @@ $(function(){
 					pageCallback();
 				}
 			}
+			else{
+				moveTo >= 0 && selectMessage(moveTo);
+			}
 		};
 
-		var selectMessage = function (index) {
+		var selectMessage = function(index){
 			$('#msg_table').find('tbody tr.selected').removeClass('selected');
 			var arr_index = $('#msg_table').find('tbody tr:eq(' +(index)+ ')').addClass('selected').data('index');
 			fillEditBar(arr_index);
@@ -260,7 +316,7 @@ $(function(){
 			if ( !$('#msg_table tr.selected').length ) return;
 			var $row = $('#msg_table tr:eq(' + getCurrentMessage() + ')');
 			var msg = msgs[$row.data('index')];
-			var dirty = $('#msgstr').val() != msg.msgstr || $('#comments').val() != msg.comments || $('#fuzz').prop('checked') != msg.fuzzy || $('#notr').prop('checked') != msg.noTranslate;
+			var dirty = msg && ( $('#msgstr').val() != msg.msgstr || $('#comments').val() != msg.comments || $('#fuzz').prop('checked') != msg.fuzzy || $('#notr').prop('checked') != msg.noTranslate );
 			if (dirty) {
 				saving = true;
 				msg.msgstr = $('#msgstr').val().replace(/\n+$/,'');
@@ -291,7 +347,8 @@ $(function(){
 				+ (obj.noTranslate == 1 ? 'n ' : '')
 				+ (obj.isObsolete ? 'd ' : ''); 
 			return	''
-				+	'<tr class="' + tr_class + '"><td class="msgid"><div><span>'
+				+ '<tr class="' + tr_class + '" data-id="'+obj.id+'">'
+				+ '<td class="msgid"><div><span>'
 				+ escape(obj.msgid) + '</span></div></td>'
 				+ '<td class="msgstr"><div>'
 				+ (obj.msgstr?escape(obj.msgstr):'') + '</div></td>'
@@ -309,6 +366,7 @@ $(function(){
 		// Fill the Edit Bar with the selected message
 		var fillEditBar = function(index){
 			var msg = msgs[index];
+			editOpen(msg.id);
 			$('#ref_data').html( nl2br(escape(msg.reference)) || '-' );
 			$('#com_data').html( nl2br(escape(msg.extractedComments)) || '-' );
 			$('#update_data').html( msg.updatedAt || '-' );
@@ -319,11 +377,9 @@ $(function(){
 			( msg.noTranslate == 1 ) ? $('#notr').prop('checked',true) : $('#notr').prop('checked',false);
 			$('#edit_id').attr( 'value', msg.id );
 		};
-			
-		getCatalogues();
 		getStats();
 		
-		$('#msg_table_head thead th').click(function() {
+		$('#msg_table thead th').click(function() {
 			var column_index = $(this).closest('thead').find('th').index(this);
 			var direction = !!$(this).hasClass('sort-desc') || !$(this).hasClass('sort-asc');
 			var nOrder = $(this).attr('class').split(' ')[0];
@@ -333,70 +389,66 @@ $(function(){
 					$('#msg_table').tsort(column_index,direction);
 				}
 				else{
-					var nhref = window.location.href;
-					if($get('order')!='')
+					var nhref = getHash();
+					if($hashGet('order')!='')
 						nhref = nhref.replace('order='+order,'order='+nOrder);
 					else
 						nhref += '&order='+nOrder;
-					if($get('sorting')!='')
+					if($hashGet('sorting')!='')
 						nhref = nhref.replace('sorting='+sorting,'sorting='+(direction?'asc':'desc'));
 					else
 						nhref += '&sorting='+(direction?'asc':'desc');
-					window.location.href = nhref;
+					window.location.hash = nhref;
 				}
 		});
 		
 		// Add toggle effect
-		$('#edit_bar .block h3 a.expand').click(function(){
+		$('#edit_row .block h3 a.expand').click(function(){
 			$(this).parents('.block').find('.data').toggle('fast');
 		}).parents('.block').find('.data').toggle();
 		
 		// Add rollover effect to Side Bar
-		var left = $('div.block').offset().left;
-		var top = $('div.block').offset().top + $('div.block').height();
-		$('body').on("mouseover", '#ref_head',function(){
+		$('body').on('mouseover', '#ref_head',function(){
+			var left = $(this).offset().left;
+			var top = $(this).offset().top + $(this).height();
 			$('#ref_data').css({'left':left, 'top':top}).fadeIn('fast');
-		}).on("mouseout", '#ref_head',function(){
+		}).on('mouseout', '#ref_head',function(){
 			$('#ref_data').fadeOut();
 		});
 		$('body').on("mouseover", '#update_head',function(){
+			var left = $(this).offset().left;
+			var top = $(this).offset().top + $(this).height();
 			$('#update_data').css({'left':left, 'top':top}).fadeIn('fast');
 		}).on("mouseout",'#update_head', function(){
 			$('#update_data').fadeOut();
 		});
 		$('body').on("mouseover", '#src_com_head',function(){
+			var left = $(this).offset().left;
+			var top = $(this).offset().top + $(this).height();
 			$('#com_data').css({'left':left, 'top':top}).fadeIn('fast');
 		}).on("mouseout", '#src_com_head',function(){
 			$('#com_data').fadeOut();
 		});
 		
-		$(this).resize(function() {
-			var w = $(this).width();
-			var h = $(this).height();
-			var l = $('#message_container').offset().left;
-			$('#message_container').css({width:w-l});
-			$('#msg_table,#msg_table_head').css({width:w-l-20});
-		}).resize();
-		
 		$('#clean_obsolete').click(function(e){
 			$('body').css('opacity',0.2);
 			e.preventDefault();
 			messageService('cleanObsolete',[lang,catName],function(){
-				window.location.href = window.location.href;
+				load();
 			});
 			return false;
 		});
 		
 		$('#loading_indicator').show();
-		if ($('#errors span').text() != "") return;
 		messageService('getMessages',[lang,catName,page,order,sorting],function(d){
-			// save data to global messages
-			msgs = [];
+			msgs = []; // save data to global messages
 			for(var k in d){
 				msgs.push(d[k]);
 			}
+			var $tbody = $('#msg_table tbody');
+			$tbody.empty();
 			if (msgs&&msgs.length){
-				var $tbody = $('#msg_table tbody'), html="";			
+				var html="";
 				$.each(msgs,function(i,e){
 					html += renderRowAsString(e);
 				})
@@ -404,16 +456,24 @@ $(function(){
 					$(e).data('index',i).bind('sync',sync);
 				});
 				$('tr',$tbody).click(function(){
-					selectMessage($(this).prevAll().length);
+					//selectMessage($(this).prevAll().length);
+					setHash('id',$(this).attr('data-id'));
 				});
-				selectMessage(0);
 			}
+			if(id)
+				selectMessage($('#edit_table tr[data-id="'+id+'"]').index());
+		},function(){
 			$('#loading_indicator').hide();
 		});
 		
 		$('#next').click(function(e){
 			e.preventDefault();
 			moveBy(1);
+			$('#msgstr').focus();
+		});
+		$('#prev').click(function(e){
+			e.preventDefault();
+			moveBy(-1);
 			$('#msgstr').focus();
 		});
 		$('#fuzz').click(function(){
@@ -444,13 +504,13 @@ $(function(){
 			}
 		});
 		
-		$('#msg_table_head thead th.'+order).addClass('sort-'+sorting);
+		$('#msg_table thead th.'+order).addClass('sort-'+sorting);
 		
 	}
 	var countPotMessages = function(){
 		messageService('countPotMessages',[],function(count){
 			if(count)
-				$('#counter').text('('+count+' messages)');
+				$('#counter').text(count);
 		});
 	};
 	countPotMessages();
@@ -463,4 +523,38 @@ $(function(){
 		});
 		return false;
 	});
+	
+	//var editBox = $('#edit_row');
+	//var editOpen = function(){		
+		//editBox.dialog('option','width',window.innerWidth-25);
+		//editBox.dialog('option','height',window.innerHeight-5);
+		//editBox.dialog('open');
+	//};
+	//editBox.dialog({
+		//autoOpen: false,
+		//modal: true,
+		//open:function(){
+		//},
+		//resizable:true
+    //});
+	
+	
+	var editOpen = function(msg_id){
+		id = msg_id;
+		$('#edit_table').hide();
+		$('#edit_row').show();
+    };
+	var editClose = function(){	
+		$('#edit_row').hide();
+		$('#edit_table').show();
+    };
+    
+    
+    $('body').show();
+};
+
+$(window).on('hashchange', function(){
+	load();
 });
+
+load();
