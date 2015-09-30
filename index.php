@@ -14,7 +14,7 @@
 			<div id="nav">
 				<select id="catalogue_list"></select>
 				<button id="makepot">MakePOT</button>
-				<span id="counter-wrap"><span id="counter">?</span> messages</span>
+				<span id="counter-wrap"><span id="counter"></span> messages</span>
 				<span id="selected-lang"></span>
 				<button id="update_cat" class="action">ImportPOT</button>
 				<div id="cat_stats">
@@ -31,10 +31,10 @@
 					<table id="msg_table" cellspacing="0">
 						<thead>
 							<tr>
-								<th class="msgid">
-									<div><img src="img/blank.gif"/>Original String</div>
-								</th>
-								<th class="msgstr"><img src="img/blank.gif"/>Translation</th>
+								<th class="id"><img src="img/blank.gif"/>id</th>
+								<th class="reference"><img src="img/blank.gif"/>reference</th>
+								<th class="msgid"><img src="img/blank.gif"/>msgid</th>
+								<th class="msgstr"><img src="img/blank.gif"/>msgstr</th>
 								<th class="fuzzy" title="Fuzzy"><img src="img/blank.gif"/>F</th>
 								<th class="notr" title="No Translate"><img src="img/blank.gif"/>N</th>
 								<th class="depr" title="Deprecated"><img src="img/blank.gif"/>D</th>

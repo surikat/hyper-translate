@@ -1,7 +1,7 @@
 var context = {
 	lang:null,
 	page:1,
-	order:'msgid',
+	order:'id',
 	sorting:'asc',
 	name:'messages',
 	limit:15,
@@ -261,6 +261,10 @@ var renderRowAsString = function(obj) {
 		+ (obj.isObsolete ? 'd ' : ''); 
 	return	''
 		+ '<tr class="' + tr_class + '" data-id="'+obj.id+'">'
+		+ '<td class="id"><div><span>'
+		+ escape(obj.id) + '</span></div></td>'
+		+ '<td class="reference"><div><span>'
+		+ escape(obj.reference) + '</span></div></td>'
 		+ '<td class="msgid"><div><span>'
 		+ escape(obj.msgid) + '</span></div></td>'
 		+ '<td class="msgstr"><div>'
@@ -373,6 +377,7 @@ var loadMessages = function(){
 
 var init = function(){
 	countPotMessages();
+	getCatalogues();
 	$('#makepot').click(function(e){
 		e.preventDefault();
 		$('body').css('opacity',0.2);
@@ -395,6 +400,7 @@ var init = function(){
 		context.order = nOrder;
 		context.sorting = direction?'asc':'desc';
 		context.page = 1;
+		loadMessages();
 	});
 	
 	// Add toggle effect
@@ -503,8 +509,6 @@ var init = function(){
 	$('#selected-lang').click(function(){
 		unSelectLanguage();
 	});
-	
-	getCatalogues();
 };
 
 init();

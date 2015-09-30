@@ -260,19 +260,31 @@ a.top_btns{
 		background:transparent url('../img/arrow.png') no-repeat scroll 0 -18px;
 	}
 }
+#msg_table thead th {
+	text-align: center;
+}
 #msg_table td {
 	background-color:#FFF;
 	border-bottom:1px solid #DADADA;
 	padding:6px 0;
 	cursor:pointer;
+	text-align:left;
 }
 #msg_table td.fuzzy, #msg_table td.notr, #msg_table td.depr,#msg_table th.fuzzy, #msg_table th.notr,#msg_table th.depr {
 	width:30px;
 	text-align:center;
 }
 #msg_table td.msgid,#msg_table th.msgid {
-	width:45%;
-	text-align:left;
+	width:30%;
+}
+#msg_table td.msgstr,#msg_table th.msgstr {
+	width:30%;
+}
+#msg_table td.reference,#msg_table th.reference {
+	width:20%;
+}
+#msg_table td.id,#msg_table th.id {
+	width:50px;
 }
 #msg_table tr.empty td {
 	background-color:#FFFFDD;

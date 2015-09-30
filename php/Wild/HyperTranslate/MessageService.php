@@ -37,6 +37,8 @@ class MessageService {
 			default:
 				$order = 'msgid';
 			break;
+			case 'id':
+			case 'reference':
 			case 'msgid':
 			case 'msgstr':
 			case 'isObsolete':
