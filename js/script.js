@@ -262,7 +262,7 @@ var updater = function(t){
 var saving;
 var beforeBlur = function(){
 	if ( !$('#msg_table tr.selected').length ) return;
-	var $row = $('#msg_table tr:eq(' + getCurrentMessage() + ')');
+	var $row = $('#msg_table tr:eq(' + (getCurrentMessage()+1) + ')');
 	var msg = msgs[$row.index()];
 	var dirty = msg && ( $('#msgstr').val() != msg.msgstr || $('#comments').val() != msg.comments || $('#fuzz').prop('checked') != msg.fuzzy || $('#notr').prop('checked') != msg.noTranslate );
 	if (dirty) {
