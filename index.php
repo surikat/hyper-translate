@@ -46,6 +46,9 @@
 				</div>
 				<div id="pagination"></div>
 			</div>
+			<div id="nav_row">
+				<input id="return_table" type="image" src="img/return.png"></input>
+			</div>
 			<div id="edit_row">
 				<div class="block">
 					<table id="edit_row_table"><thead><tr>
@@ -112,7 +115,6 @@
 				'jquery-ui/dialog',
 				
 				'json2',
-				'tablesorter',
 				'simple-pagination',
 				'script',
 			]);
