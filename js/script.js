@@ -149,20 +149,6 @@ var getStats = function(){
 	messageService('getStats', [lang,$hashGet('name','messages')], function(cat){
 		if(cat.message_count)
 			cat.message_count = cat.message_count;
-		var updater,ttlines;
-		updater = function(t){
-			messageService('importCatalogue',[lang,$hashGet('name','messages'),t],function(data){
-				if(data.timeout){
-					updater(data.timeout);
-					$('.atline').html('importing from POT<br>line: '+data.timeout+'/'+ttlines+'<br>Please wait...');
-				}
-				else{
-					$('.atline').hide();
-					$('#update_cat').show();
-					load();
-				}
-			});
-		};
 		var pbw = $('.progressbar').width()	* ( cat.translated_count / (cat.message_count));
 		if(pbw)
 			pbw += 1;
@@ -255,6 +241,22 @@ var selectMessage = function(index){
 
 var getCurrentMessage = function(){
 	return $('#msg_table tr.selected').index();
+};
+
+var ttlines;
+var updater = function(t){
+	messageService('importCatalogue',[lang,$hashGet('name','messages'),t],function(data){
+		if(data.timeout){
+			updater(data.timeout);
+			$('.atline').html('importing from POT<br>line: '+data.timeout+'/'+ttlines+'<br>Please wait...');
+		}
+		else{
+			$('.atline').hide();
+			$('#update_cat').show();
+			load();
+			$('#body_w').css('opacity',1);
+		}
+	});
 };
 
 var saving;
