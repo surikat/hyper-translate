@@ -1,3 +1,11 @@
+var context = {
+	lang:null,
+	page:1,
+	order:'msgid',
+	sorting:'asc',
+	name:'messages',
+	limit:15,
+};
 var local_names = {"aa":"Afaraf","ab":"Аҧсуа","ae":"Avesta","af":"Afrikaans","ak":"Akan","am":"አማርኛ","an":"Aragonés","ar":"‫العربية","as":"অসমীয়া","av":"авар мацӀ","ay":"Aymar aru","az":"Azərbaycan dili","ba":"башҡорт теле","be":"Беларуская","bg":"български език","bh":"भोजपुरी","bi":"Bislama","bm":"Bamanankan","bn":"বাংলা","bo":"བོད་ཡིག","br":"Brezhoneg","bs":"Bosanski jezik","ca":"Català","ce":"нохчийн мотт","ch":"Chamoru","co":"Corsu","cr":"ᓀᐦᐃᔭᐍᐏᐣ","cs":"Česky","cu":"Словѣньскъ","cv":"чӑваш чӗлхи","cy":"Cymraeg","da":"Dansk","de":"Deutsch","dv":"‫ދިވެހި","dz":"རྫོང་ཁ","ee":"Ɛʋɛgbɛ","el":"Ελληνικά","en":"English","eo":"Esperanto","es":"Español","et":"Eesti keel","eu":"Euskara","fa":"‫فارسی","ff":"Fulfulde","fi":"Suomen kieli","fj":"Vosa Vakaviti","fo":"Føroyskt","fr":"Français","fy":"Frysk","ga":"Gaeilge","gd":"Gàidhlig","gl":"Galego","gn":"Avañe'ẽ","gu":"ગુજરાતી","gv":"Ghaelg","ha":"‫هَوُسَ","he":"‫עברית","hi":"हिन्दी","ho":"Hiri Motu","hr":"Hrvatski","ht":"Kreyòl ayisyen","hu":"magyar","hy":"Հայերեն","hz":"Otjiherero","ia":"Interlingua","id":"Bahasa Indonesia","ie":"Interlingue","ig":"Igbo","ii":"ꆇꉙ","ik":"Iñupiaq","io":"Ido","is":"Íslenska","it":"Italiano","iu":"ᐃᓄᒃᑎᑐᑦ","ja":"日本語 (にほんご)","jv":"Basa Jawa","ka":"ქართული","kg":"KiKongo","ki":"Gĩkũyũ","kj":"Kuanyama","kk":"Қазақ тілі","kl":"Kalaallisut","km":"ភាសាខ្មែរ","kn":"ಕನ್ನಡ","ko":"한국어 (韓國語)","kr":"Kanuri","ks":"कश्मीरी","ku":"Kurdî","kv":"коми кыв","kw":"Kernewek","ky":"кыргыз тили","la":"Latine","lb":"Lëtzebuergesch","lg":"Luganda","li":"Limburgs","ln":"Lingála","lo":"ພາສາລາວ","lt":"Lietuvių kalba","lu":"kiluba","lv":"Latviešu valoda","mg":"Fiteny malagasy","mh":"Kajin M̧ajeļ","mi":"Te reo Māori","mk":"македонски јазик","ml":"മലയാളം","mn":"Монгол","mo":"лимба молдовеняскэ","mr":"मराठी","ms":"Bahasa Melayu","mt":"Malti","my":"ဗမာစာ","na":"Ekakairũ Naoero","nb":"Norsk bokmål","nd":"isiNdebele","ne":"नेपाली","ng":"Owambo","nl":"Nederlands","nn":"Norsk nynorsk","no":"Norsk","nr":"Ndébélé","nv":"Diné bizaad","ny":"ChiCheŵa","oc":"Occitan","oj":"ᐊᓂᔑᓈᐯᒧᐎᓐ","om":"Afaan Oromoo","or":"ଓଡ଼ିଆ","os":"Ирон æвзаг","pa":"ਪੰਜਾਬੀ","pi":"पािऴ","pl":"Polski","ps":"‫پښتو","pt":"Português","qu":"Runa Simi","rm":"Rumantsch grischun","rn":"kiRundi","ro":"Română","ru":"русский язык","rw":"Kinyarwanda","sa":"संस्कृतम्","sc":"sardu","sd":"सिन्धी","se":"Davvisámegiella","sg":"Yângâ tî sängö","si":"සිංහල","sk":"Slovenčina","sl":"Slovenščina","sm":"Gagana fa'a Samoa","sn":"chiShona","so":"Soomaaliga","sq":"Shqip","sr":"српски језик","ss":"SiSwati","st":"seSotho","su":"Basa Sunda","sv":"Svenska","sw":"Kiswahili","ta":"தமிழ்","te":"తెలుగు","tg":"тоҷикӣ","th":"ไทย","ti":"ትግርኛ","tk":"Türkmen","tl":"Tagalog","tn":"seTswana","to":"faka Tonga","tr":"Türkçe","ts":"xiTsonga","tt":"татарча","tw":"Twi","ty":"Reo Mā`ohi","ug":"Uyƣurqə","uk":"українська мова","ur":"‫اردو","uz":"O'zbek","ve":"tshiVenḓa","vi":"Tiếng Việt","vo":"Volapük","wa":"Walon","wo":"Wollof","xh":"isiXhosa","yi":"‫ייִדיש","yo":"Yorùbá","za":"Saɯ cueŋƅ","zh":"中文, 汉语, 漢語","zu":"isiZulu"};
 var escape = function(str) {
 	if(str)
@@ -72,59 +80,10 @@ var NotificationObj = {
 	}
 };
 
-var getHash = function(){
-	var hash = window.location.hash;
-	if(hash.substr(0,1)=='#')
-		hash = hash.substr(1);
-	return hash;
-};
-
-var replaceHash = function(k,v,nh){
-	var cv = $hashGet(k);
-	if(cv!='')
-		nh = nh.replace(k+'='+cv,v!==false?k+'='+v:'');
-	else if(v!==false)
-		nh += '&'+k+'='+v;
-	if(nh.substr(-1)=='&')
-		nh = nh.substr(0,nh.length-1);
-	return nh;
-};
 var messagesLoadCallback;
-var setHash = function(k,v){
-	var nh = getHash();
-	if(typeof(k)=='object'){
-		for(var key in k){
-			nh = replaceHash(key,k[key],nh);
-		}
-	}
-	else{
-		nh = replaceHash(k,v,nh);
-	}
-	window.location.hash = '#'+nh;
-};
-
-var $hashGet = function(k,def){
-	var urlVars = [],hash;
-	var hashes = getHash().split('&');
-	var y = 0;
-	for(var i=0;i<hashes.length;i++){
-		hash = hashes[i].split('=');
-		if(hash.length){
-			urlVars[hash[0]] = hash[1];
-		}
-		else{
-			urlVars[y] = hashes[i];
-			y++;
-		}
-	}
-	return typeof(urlVars[k])!='undefined'&&urlVars[k]!=''?urlVars[k]:(typeof(def)!='undefined'?def:'');
-};
-
-var lang,pages,page,sorting,order;
-
-// Get the stored catalogues
+var pages = 1;
 var getCatalogues = function(){
-	 messageService('getCatalogues', [lang], function(data){
+	 messageService('getCatalogues', [context.lang], function(data){
 		if(data.length==0){
 			NotificationObj.showError("No PO Catalalogues Found.");
 			return;
@@ -134,26 +93,27 @@ var getCatalogues = function(){
 		for (var i=0;i<data.length;++i){
 			var opt = $("<option />");
 			opt.attr('data-name',data[i]).text(data[i]);
-			if(data[i]==$hashGet('name','messages')){
+			if(data[i]==context.name){
 				opt.attr('selected','selected');
 			}
 			catList.append(opt);
 		}
 		catList.change(function(){
-			setHash('name',$(this).val());
+			context.name = $(this).val();
+			getStats();
+			loadMessages();
 		});
 	});
 	
 };
 var getStats = function(){
-	messageService('getStats', [lang,$hashGet('name','messages')], function(cat){
+	messageService('getStats', [context.lang,context.name], function(cat){
 		if(cat.message_count)
 			cat.message_count = cat.message_count;
 		var pbw = $('.progressbar').width()	* ( cat.translated_count / (cat.message_count));
 		if(pbw)
 			pbw += 1;
 		$('.progressbar .inner').css( 'width',pbw);
-		
 		$('.translated').text(cat.translated_count?cat.translated_count:0);
 		$('.total').text(cat.message_count?cat.message_count:0);
 		var percent = (cat.message_count&&cat.translated_count?parseInt(cat.translated_count / (cat.message_count) *100):'0') + " %";
@@ -186,12 +146,14 @@ var moveBy = function(num){
 			};
 			if($('a.page-link.next').length){
 				pageCallback = function(){
-					setHash('page',parseInt($hashGet('page','0'))+1);
+					context.page = context.page+1;
+					$('a.page-link.next').click();
 				};
 			}
 			else{
 				pageCallback = function(){
-					setHash('page',1);
+					context.page = 1;
+					$('a.page-link[href="#page-1"]').click();
 				};
 			}
 		}
@@ -201,12 +163,15 @@ var moveBy = function(num){
 			};
 			if($('a.page-link.prev').length){
 				pageCallback = function(){
-					setHash('page',parseInt($hashGet('page'))-1);
+					context.page = context.page-1;
+					$('a.page-link.prev').click();
 				};
 			}
 			else{
 				pageCallback = function(){
-					setHash('page',$('a.page-link:eq('+($('a.page-link').length-2)+')').text());
+					var lastp = $('a.page-link:eq('+($('a.page-link').length-2)+')');
+					context.page = parseInt(lastp.text());
+					lastp.click();
 				};
 			}
 		}
@@ -245,7 +210,7 @@ var getCurrentMessage = function(){
 
 var ttlines;
 var updater = function(t){
-	messageService('importCatalogue',[lang,$hashGet('name','messages'),t],function(data){
+	messageService('importCatalogue',[context.lang,context.name,t],function(data){
 		if(data.timeout){
 			updater(data.timeout);
 			$('.atline').html('importing from POT<br>line: '+data.timeout+'/'+ttlines+'<br>Please wait...');
@@ -253,7 +218,7 @@ var updater = function(t){
 		else{
 			$('.atline').hide();
 			$('#update_cat').show();
-			load();
+			loadMessages();
 			$('#body_w').css('opacity',1);
 		}
 	});
@@ -310,6 +275,23 @@ var renderRowAsString = function(obj) {
 		+ (obj.isObsolete ? 'D' : '')
 		+ '</td>';
 }
+
+var loadPagination = function(){
+	messageService('getCountMessages',[context.lang,context.name],function(total){
+		pages = Math.ceil(total/context.limit);
+		$('#pagination').pagination({
+			pages: pages,
+			currentPage: context.page,
+			cssStyle: 'compact-theme',
+			onPageClick: function(pageNumber, event){
+				event.preventDefault();
+				context.page = pageNumber;
+				getMessages();
+			}
+		});
+	});
+};
+
 var msgs;
 // Fill the Edit Bar with the selected message
 var fillEditBar = function(index){
@@ -329,6 +311,66 @@ var fillEditBar = function(index){
 	( msg.noTranslate == 1 ) ? $('#notr').prop('checked',true) : $('#notr').prop('checked',false);
 	$('#edit_id').attr( 'value', msg.id );
 };
+
+var selectLanguage = function(lang){
+	context.lang = lang;
+	$('#selected-lang').html('<img width="16" height="16" src="img/langs/'+lang+'.png" /> '+local_names[lang]);
+	var title = $('title');
+	var originTitle = title.data('title');
+	if(!originTitle){
+		originTitle = title.text();
+		title.data('title',originTitle);
+	}
+	title.text(originTitle+' - '+local_names[lang]);
+	$('link[rel=icon]').attr('href','img/langs/'+lang+'.png');
+	$(showForLang).show();
+	$('#flags').hide();
+	loadMessages();
+};
+
+var unSelectLanguage = function(){
+	$('#nav_row,#edit_row').hide();
+	$(showForLang).hide();
+	$('#flags').show();
+};
+
+var getMessages = function(){
+	messageService('getMessages',[context.lang,context.name,context.page,context.order,context.sorting],function(d){
+		msgs = [];
+		for(var k in d){
+			msgs.push(d[k]);
+		}
+		var tbody = $('#msg_table tbody');
+		tbody.empty();
+		if (msgs&&msgs.length){
+			var html="";
+			$.each(msgs,function(i,e){
+				html += renderRowAsString(e);
+			});
+			tbody.append(html).find('tr')
+				.off('sync')
+				.off('click')
+				.on('sync',sync)
+				.click(function(){
+					selectMessage($(this).index());
+				});
+		}
+		editClose();
+		if(messagesLoadCallback){
+			messagesLoadCallback();
+			messagesLoadCallback = null;
+		}
+		$('body').css('opacity',1);
+	});
+};
+var showForLang = '#edit_table,#update_cat,#compile_cat,#cat_stats,#clean_obsolete,#pagination,#selected-lang';
+
+var loadMessages = function(){
+	getStats();
+	getMessages();
+	loadPagination();
+};
+
 var init = function(){
 	countPotMessages();
 	$('#makepot').click(function(e){
@@ -350,11 +392,9 @@ var init = function(){
 		var nOrder = $(this).attr('class').split(' ')[0];
 		$(this).siblings().andSelf().removeClass('sort-asc sort-desc');
 		$(this).addClass(direction ? 'sort-asc' : 'sort-desc');
-		setHash({
-			'order':nOrder,
-			'sorting':direction?'asc':'desc',
-			'page':false,
-		});
+		context.order = nOrder;
+		context.sorting = direction?'asc':'desc';
+		context.page = 1;
 	});
 	
 	// Add toggle effect
@@ -386,16 +426,16 @@ var init = function(){
 	});
 	
 	$('#clean_obsolete').click(function(e){
-		$('body').css('opacity',0.2);
 		e.preventDefault();
-		messageService('cleanObsolete',[lang,$hashGet('name','messages')],function(){
-			load();
+		$('body').css('opacity',0.2);
+		messageService('cleanObsolete',[context.lang,context.name],function(){
+			loadMessages();
 		});
 		return false;
 	});
 	
 	$('#update_cat').off('click').click(function(){
-		messageService('countPotLines',[$hashGet('name','messages')],function(ttl){
+		messageService('countPotLines',[context.name],function(ttl){
 			ttlines = ttl;
 			$('#body_w').css('opacity',0.2);
 			$('.atline')
@@ -409,7 +449,7 @@ var init = function(){
 	});
 	$('#compile_cat').off('click').click(function(){
 		$('#body_w').css('opacity',0.2);
-		messageService('exportCatalogue',[lang,$hashGet('name','messages')],function(){
+		messageService('exportCatalogue',[context.lang,context.name],function(){
 			$('#body_w').css('opacity',1);
 		});
 	});
@@ -451,86 +491,20 @@ var init = function(){
 			}
 		}
 	});
-	$('#msg_table thead th.'+order).addClass('sort-'+sorting);
+	$('#msg_table thead th.'+context.order).addClass('sort-'+context.sorting);
 	
-	$('body').show();
-};
-var showForLang = '#edit_table,#update_cat,#compile_cat,#cat_stats,#clean_obsolete,#pagination,#selected-lang';
-var load = function(){
-	
-	lang	= $hashGet('lang');
-	pages	= 1;
-	page	= parseInt($hashGet('page',1));
-	sorting	= $hashGet('sorting','asc');
-	order	= $hashGet('order','msgid');	
-	
-	if(lang){
-		$('#selected-lang').html('<img width="16" height="16" src="img/langs/'+lang+'.png" /> '+local_names[lang]);
-		var title = $('title');
-		var originTitle = title.data('title');
-		if(!originTitle){
-			originTitle = title.text();
-			title.data('title',originTitle);
-		}
-		title.text(originTitle+' - '+local_names[lang]);
-		$('link[rel=icon]').attr('href','img/langs/'+lang+'.png');
-		$(showForLang).show();
-		$('#flags').hide();
+	for(var k in local_names){
+		$('#flags').append('<span data-lang="'+k+'"><img width="16" height="16" src="img/langs/'+k+'.png"> '+local_names[k]+'</span>');
 	}
-	else{
-		$('#nav_row,#edit_row').hide();
-		$(showForLang).hide();
-		$('#flags').show();
-	}
+	$('#flags span').click(function(){
+		selectLanguage($(this).attr('data-lang'));
+	});
+	
+	$('#selected-lang').click(function(){
+		unSelectLanguage();
+	});
+	
 	getCatalogues();
-	if(lang){
-		messageService('getCountMessages',[lang,$hashGet('name','messages')],function(total){
-			pages = Math.ceil(total/parseInt($hashGet('limit','15')));
-			$('#pagination').pagination({
-				pages: pages,
-				currentPage: page,
-				cssStyle: 'compact-theme',
-				onPageClick: function(pageNumber, event){
-					event.preventDefault();
-					setHash('page',pageNumber);
-				}
-			});
-		});
-		getStats();
-		$('#loading_indicator').show();
-		messageService('getMessages',[lang,$hashGet('name','messages'),page,order,sorting],function(d){
-			msgs = []; // save data to global messages
-			for(var k in d){
-				msgs.push(d[k]);
-			}
-			var $tbody = $('#msg_table tbody');
-			$tbody.empty();
-			if (msgs&&msgs.length){
-				var html="";
-				$.each(msgs,function(i,e){
-					html += renderRowAsString(e);
-				})
-				$tbody.append(html).find('tr')
-					.on('sync',sync)
-					.click(function(){
-						selectMessage($(this).index());
-					});
-			}
-			editClose();
-			if(messagesLoadCallback){
-				messagesLoadCallback();
-				messagesLoadCallback = null;
-			}
-		},function(){
-			$('#loading_indicator').hide();
-		});
-	}
 };
 
 init();
-
-$(window).on('hashchange', function(){
-	load();
-});
-
-load();

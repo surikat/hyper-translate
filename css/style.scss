@@ -310,16 +310,6 @@ a.top_btns{
 	margin:0;
 	padding:0 1em 0 .5em;
 }
-#loading_indicator {
-	background-color:#FFF;
-	height:200px;
-	border:1px solid #DDD;
-	font-size:20px;
-	text-align:center;
-	padding-top:3em;
-	margin-right:1em;
-	display:none;
-}
 
 #mark,
 #multilg_support_link {
@@ -359,10 +349,11 @@ a.top_btns{
     display: block;
     float: left;
     padding: 2px;
-	a{
+	span{
 		img{
 			vertical-align: middle;
 		}
+		cursor:pointer;
 		color: #000;
 		display: block;
 		float: left;
@@ -399,13 +390,16 @@ a.top_btns{
 	
 }
 
-body,
 #edit_table,
 #update_cat,
 #compile_cat,
 #cat_stats,
 #clean_obsolete,
-#pagination{
+#pagination,
+
+#selected-lang,
+#nav_row,
+#edit_row{
 	display:none;
 }
 
