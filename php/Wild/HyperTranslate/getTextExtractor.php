@@ -25,7 +25,7 @@ class getTextExtractor{
         return $lines;
     }
 	protected static function quote($str){
-		return '"'.str_replace(['"',"\n","\r"], ['\"','\n',''], stripslashes($str)).'"';
+		return '"'.trim(str_replace(['"',"\n","\r"], ['\"','\n',''], stripslashes($str))).'"';
 	}
 	protected static function dir($dir,$sourceDir=null){
 		$msg = '';

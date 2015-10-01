@@ -50,7 +50,7 @@ class getTextExtractorTemplix extends getTextExtractor{
 			if(self::$autoWrapL10n)
 				$t = str_replace($aggrK,$aggrV,$t);
 			if($t){
-				$msg .= "#: $filename:".sprintf("%03d", $i)." \nmsgid ".self::quote($t)."\nmsgstr \"\" \n\n";
+				$msg .= "#: $filename:$i\nmsgid ".self::quote($t)."\nmsgstr \"\" \n\n";
 				$i++;
 			}
 			$el->remove();
@@ -62,7 +62,7 @@ class getTextExtractorTemplix extends getTextExtractor{
 					$t = str_replace($aggrK,$aggrV,$t);
 				if(!$el->parent||$el->parent->nodeName!='pre')
 					$t = preg_replace('/(?:\s\s+|\n|\t|\r)/', ' ', $t);
-				$msg .= "#: $filename:".sprintf("%03d", $i)." \nmsgid ".self::quote($t)."\nmsgstr \"\" \n\n";
+				$msg .= "#: $filename:$i\nmsgid ".self::quote($t)."\nmsgstr \"\" \n\n";
 				$i++;
 			}
 		});
@@ -80,7 +80,7 @@ class getTextExtractorTemplix extends getTextExtractor{
 				){
 					if(self::$autoWrapL10n)
 						$v = str_replace($aggrK,$aggrV,$v);
-					$msg .= "#: $filename:".sprintf("%03d", $i)." \nmsgid ".self::quote($v)."\nmsgstr \"\" \n\n";
+					$msg .= "#: $filename:$i\nmsgid ".self::quote($v)."\nmsgstr \"\" \n\n";
 					$i++;
 				}
 			}

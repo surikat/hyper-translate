@@ -18,6 +18,17 @@ class Po2Mo{
 		} else {
 			if ($x[0] == '"')
 				$x= substr($x, 1, -1);
+			
+			//$x= str_replace('\\', '\\\\', $x);
+			//$x= str_replace('"', '\"', $x);
+			//$x= str_replace("\n", "\\n", $x);
+			//$x= str_replace("\t", "\\t", $x);
+			//$x= str_replace("\b", "\\b", $x);
+			//$x= str_replace("\r", "\\r", $x);
+			//$x= str_replace("\f", "\\f", $x);
+			//$x= str_replace("\v", "\\v", $x);
+			//$x= str_replace("\a", "\\a", $x);
+			
 			$x= str_replace("\"\n\"", '', $x);
 			$x= str_replace('$', '\\$', $x);
 			$x= @eval("return \"$x\";");
