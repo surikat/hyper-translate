@@ -267,9 +267,13 @@ class POParser{
 			"previousUntranslatedString"=>"#| "
 		];		
 		$msg = "";
-		foreach ( $entry as $k=>$v )
-			if($v && @$prefixes[$k])
+		foreach ( $entry as $k=>$v ){
+			if($k=='reference')
+				$v .= ':'.$entry['refint'];
+			if($v && @$prefixes[$k]){
 				$msg .= $this->addPrefixToLines(@$prefixes[$k],$v) . "\n";
+			}
+		}
 		$msgid = 'msgid ' . $this->encodeStringFormat($entry['msgid']);
 		$msgstr = 'msgstr ' . $this->encodeStringFormat($entry['msgstr']);
 		if($entry['isObsolete']) {

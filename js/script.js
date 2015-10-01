@@ -265,7 +265,7 @@ var renderRowAsString = function(obj) {
 		+ '<td class="id"><div><span>'
 		+ escape(obj.id) + '</span></div></td>'
 		+ '<td class="reference"><div><span>'
-		+ escape(obj.reference) + '</span></div></td>'
+		+ escape(obj.reference)+':'+obj.refint + '</span></div></td>'
 		+ '<td class="msgid"><div><span>'
 		+ escape(obj.msgid) + '</span></div></td>'
 		+ '<td class="msgstr"><div>'

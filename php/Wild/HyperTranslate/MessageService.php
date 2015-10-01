@@ -25,34 +25,47 @@ class MessageService {
 		return $this->db->getCell('SELECT COUNT(*) FROM message WHERE catalogue_id = ?',[$this->cat($lang,$name)->id()]);
 	}
 	function getMessages($lang, $name, $page, $order, $sort) {
+		$sort = $sort=='desc'?'desc':'asc';
 		$limit = 15;
 		$offset = ($page-1)*$limit;
+		$msg = $this->db['message']->getClone();
+		
+		$msg
+			->where('catalogue_id=?',[$this->cat($lang,$name)->id()])
+			->limit($limit)
+			->offset($offset)
+		;
+		
 		switch($order){
 			case 'fuzzy':
-				$order = 'flags';
+				$msg->orderBy("flags $sort");
 			break;
 			case 'depr':
-				$order = 'isObsolete';
+				$msg->orderBy("isObsolete $sort");
 			break;
 			default:
-				$order = 'msgid';
+				$msg->orderBy("msgid COLLATE NOCASE $sort");
 			break;
 			case 'id':
-			case 'reference':
 			case 'msgid':
 			case 'msgstr':
 			case 'isObsolete':
 			case 'flags':
+				$msg->orderBy("$order COLLATE NOCASE $sort");
+			break;
+			case 'reference':
+				$msg->orderBy("reference COLLATE NOCASE $sort,refint $sort");
 			break;
 		}
-		$messages = $this->db['message']->getClone()
-			->where('catalogue_id=?',[$this->cat($lang,$name)->id()])
-			->orderBy($order.' COLLATE NOCASE')
-			->sort($sort)
-			->limit($limit)
-			->offset($offset)
-			->getAll()
-		;
+		
+		if($order!='msgid')
+			$msg->orderBy("msgid COLLATE NOCASE $sort");
+		if($order!='msgstr')
+			$msg->orderBy("msgstr COLLATE NOCASE $sort");
+		if($order!='reference')
+			$msg->orderBy("reference COLLATE NOCASE $sort,refint $sort");
+		
+		$messages = $msg->getAll();
 		$r = [];
 		foreach($messages as $m) {
 			$m->fuzzy = strpos($m->flags,'fuzzy') !== FALSE;

@@ -19,8 +19,6 @@ class Catalogue {
 	}
 	function __construct($db,$lang,$name){
 		$this->db = $db;
-		//$this->db->debug();
-		//$this->db->getLogger()->setHtml(false);
 		$this->lang = $lang;
 		$this->name = $name?$name:'messages';
 		$catalogue = $this->db->findOrNewOne('catalogue',['name'=>$name,'lang'=>$lang]);

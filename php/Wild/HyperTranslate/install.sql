@@ -12,6 +12,7 @@ CREATE TABLE "message" (
 	"comments" text,
 	"extractedComments" text,
 	"reference" text,
+	"refint" integer,
 	"flags" text,
 	"isObsolete" integer,
 	"noTranslate" integer,

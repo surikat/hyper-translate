@@ -10,10 +10,11 @@ class DBPoMsgStore {
 	function write($msg){
 		if(!$msg["msgid"])
 			return;
+		@list($ref,$refint) = explode(':',@$msg["reference"]);
 		$b = $this->db->findOrNewOne('message',[
 			'catalogue_id'=>$this->id,
 			'msgid'=>$msg["msgid"],
-			'reference'=> @$msg["reference"],
+			'reference'=> $ref,
 		]);
 		foreach([
 			'isObsolete'=> 0,
@@ -22,6 +23,7 @@ class DBPoMsgStore {
 			'extractedComments'=> @$msg["extracted-comments"],
 			'previousUntranslatedString'=> @$msg["previous-untranslated-string"],
 			'flags'=> @$msg["flags"],
+			'refint'=> $refint,
 		] as $k=>$v)
 			$b->$k = $v;
 		$this->db->put($b);
