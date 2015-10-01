@@ -44,6 +44,7 @@ var messageService = function(method,params,callback,complete) {
 				message += xhr.responseText;
 			}
 			NotificationObj.showError(message);
+			$('#body_w').css('opacity',1);
 		},
 		complete:function(){
 			if(typeof(complete)=='function')

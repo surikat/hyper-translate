@@ -20,7 +20,7 @@ class Po2Mo{
 				$x= substr($x, 1, -1);
 			$x= str_replace("\"\n\"", '', $x);
 			$x= str_replace('$', '\\$', $x);
-			$x= @ eval ("return \"$x\";");
+			$x= @eval("return \"$x\";");
 		}
 		return $x;
 	}
@@ -42,29 +42,37 @@ class Po2Mo{
 		$fuzzy= false;
 
 		// iterate over lines
-		while(($stream = fgets($fh, 65536)) !== false) {
-			$stream= str_replace(array (
-				"\r\n",
-				"\r"
-			), array (
-				"\n",
-				"\n"
-			), $stream);
-			foreach(explode("\n",$stream) as $line){
-				$line= trim($line);
-				if ($line === '')
-					continue;
+		while(($line = fgets($fh, 65536)) !== false) {
+			$line= trim($line);
+			if ($line === '')
+				continue;
 
-				@list ($key, $data)= explode(' ', $line, 2);
+			@list ($key, $data) = preg_split('/\s/', $line, 2);
 
-				switch ($key) {
-					case '#,' : // flag...
-						$fuzzy= in_array('fuzzy', preg_split('/,\s*/', $data));
-					case '#' : // translator-comments
-					case '#.' : // extracted-comments
-					case '#:' : // reference...
-					case '#|' : // msgid previous-untranslated-string
-						// start a new entry
+			switch ($key) {
+				case '#,' : // flag...
+					$fuzzy= in_array('fuzzy', preg_split('/,\s*/', $data));
+				case '#' : // translator-comments
+				case '#.' : // extracted-comments
+				case '#:' : // reference...
+				case '#|' : // msgid previous-untranslated-string
+					// start a new entry
+					if (sizeof($temp) && array_key_exists('msgid', $temp) && array_key_exists('msgstr', $temp)) {
+						if (!$fuzzy)
+							$hash[]= $temp;
+						$temp= array ();
+						$state= null;
+						$fuzzy= false;
+					}
+					break;
+				case 'msgctxt' :
+					// context
+				case 'msgid' :
+					// untranslated-string
+				case 'msgid_plural' :
+					// untranslated-string-plural
+					// start a new entry
+					if($state=='msgstr'){
 						if (sizeof($temp) && array_key_exists('msgid', $temp) && array_key_exists('msgstr', $temp)) {
 							if (!$fuzzy)
 								$hash[]= $temp;
@@ -72,54 +80,37 @@ class Po2Mo{
 							$state= null;
 							$fuzzy= false;
 						}
-						break;
-					case 'msgctxt' :
-						// context
-					case 'msgid' :
-						// untranslated-string
-					case 'msgid_plural' :
-						// untranslated-string-plural
-						// start a new entry
-						if($state=='msgstr'){
-							if (sizeof($temp) && array_key_exists('msgid', $temp) && array_key_exists('msgstr', $temp)) {
-								if (!$fuzzy)
-									$hash[]= $temp;
-								$temp= array ();
-								$state= null;
-								$fuzzy= false;
-							}
-						}
-						$state= $key;
-						$temp[$state]= $data;
-						break;
-					case 'msgstr' :
-						// translated-string
+					}
+					$state= $key;
+					$temp[$state]= $data;
+					break;
+				case 'msgstr' :
+					// translated-string
+					$state= 'msgstr';
+					$temp[$state][]= $data;
+					break;
+				default :
+					if (strpos($key, 'msgstr[') !== FALSE) {
+						// translated-string-case-n
 						$state= 'msgstr';
 						$temp[$state][]= $data;
-						break;
-					default :
-						if (strpos($key, 'msgstr[') !== FALSE) {
-							// translated-string-case-n
-							$state= 'msgstr';
-							$temp[$state][]= $data;
-						} else {
-							// continued lines
-							switch ($state) {
-								case 'msgctxt' :
-								case 'msgid' :
-								case 'msgid_plural' :
-									$temp[$state] .= "\n" . $line;
-									break;
-								case 'msgstr' :
-									$temp[$state][sizeof($temp[$state]) - 1] .= "\n" . $line;
-									break;
-								default :
-									// parse error
-									return FALSE;
-							}
+					} else {
+						// continued lines
+						switch ($state) {
+							case 'msgctxt' :
+							case 'msgid' :
+							case 'msgid_plural' :
+								$temp[$state] .= "\n" . $line;
+								break;
+							case 'msgstr' :
+								$temp[$state][sizeof($temp[$state]) - 1] .= "\n" . $line;
+								break;
+							default :
+								// parse error
+								return FALSE;
 						}
-						break;
-				}
+					}
+					break;
 			}
 		}
 
@@ -157,17 +148,15 @@ class Po2Mo{
 
 		foreach ($hash as $entry) {
 			$id= $entry['msgid'];
-			if (isset ($entry['msgid_plural']))
+			if(isset($entry['msgid_plural']))
 				$id .= "\x00" . $entry['msgid_plural'];
 			// context is merged into id, separated by EOT (\x04)
-			if (array_key_exists('msgctxt', $entry))
+			if(array_key_exists('msgctxt', $entry))
 				$id= $entry['msgctxt'] . "\x04" . $id;
 			// plural msgstrs are NUL-separated
-			$str= implode("\x00", $entry['msgstr']);
+			$str = implode("\x00", $entry['msgstr']);
 			// keep track of offsets
-			$offsets[]= array (
-				strlen($ids
-			), strlen($id), strlen($strings), strlen($str));
+			$offsets[] = [strlen($ids), strlen($id), strlen($strings), strlen($str)];
 			// plural msgids are not stored (?)
 			$ids .= $id . "\x00";
 			$strings .= $str . "\x00";
