@@ -123,8 +123,7 @@ a.top_btns{
 		font-size:10pt;
 	}
 	.block textarea.data{
-		width:98%;
-		height:90px;
+		width:100%;
 		border:none;
 		background-color:#DDF;
 		border-left:1px solid #CCC;
@@ -136,7 +135,6 @@ a.top_btns{
 	}
 	.block .data {
 		margin:0;
-		height:90px;
 		background-color:#FFF;
 		border-left:1px solid #CCC;
 		border-bottom:1px solid #CCC;
@@ -190,6 +188,7 @@ a.top_btns{
 		color:#222;
 	}
 	#msgid {
+		text-align:left;
 		overflow-x:hidden;
 		overflow-y:auto;
 	}
@@ -455,3 +454,9 @@ select{
 /*
 .noTitleStuff .ui-dialog-titlebar {display:none}
 */
+
+#msgid,
+#msgstr{
+	font-size:17px;
+	height:180px;
+}
