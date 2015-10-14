@@ -458,5 +458,11 @@ select{
 #msgid,
 #msgstr{
 	font-size:17px;
-	height:180px;
+	height:auto;
+}
+#msgid{
+	min-height:180px;
+}
+#msgstr{
+	min-height:250px;
 }
