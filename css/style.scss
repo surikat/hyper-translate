@@ -360,21 +360,15 @@ a.top_btns{
     display: block;
     float: left;
     padding: 2px;
-	span{
-		img{
-			vertical-align: middle;
-		}
+	text-align: left;
+	tr[data-lang]{
 		cursor:pointer;
-		color: #000;
+	}
+	tr.alphabetical{
+		cursor:normal;
 		display: block;
-		float: left;
-		height: 16px;
-		margin-bottom: 1px;
-		margin-top: 1px;
-		padding: 0;
-		text-align: left;
-		text-decoration: none;
-		width: 150px;
+		margin-top:12px;
+		margin-bottom:5px;
 	}
 }
 

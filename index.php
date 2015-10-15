@@ -83,7 +83,16 @@
 			<div id="update_data"></div>
 			<div id="com_data"></div>
 			
-			<div id="flags"></div>
+			<table id="flags">
+				<thead>
+					<th>Flag</th>
+					<th>ISO639-2</th>
+					<th>Lang</th>
+					<th>English</th>
+					<th>French</th>
+				</thead>
+				<tbody></tbody>
+			</table>
 		</div>
 		<div class="atline"></div>
 		
