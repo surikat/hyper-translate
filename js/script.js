@@ -111,7 +111,12 @@ var getStats = function(){
 	messageService('getStats', [context.lang,context.name], function(cat){
 		if(cat.message_count)
 			cat.message_count = cat.message_count;
-		var pbw = $('.progressbar').width()	* ( cat.translated_count / (cat.message_count));
+		var owidth = $('.progressbar').data('width');
+		if(!owidth){
+			owidth = $('.progressbar').width();
+			$('.progressbar').data('width',owidth);
+		}
+		var pbw = owidth	* ( cat.translated_count / (cat.message_count));
 		if(pbw)
 			pbw += 1;
 		$('.progressbar .inner').css( 'width',pbw);
