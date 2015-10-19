@@ -22,8 +22,8 @@ class getTextExtractorTemplix extends getTextExtractor{
 			$inlineElsCheck[] = 'TEXT';
 			$TML($inlineStr)->each(function($el)use(&$aggr,&$inlineElsCheck){
 				if(
-					$el->previousSibling&&$el->previousSibling->nodeName=='TEXT'
-					||($el->nextSibling&&in_array($el->nextSibling->nodeName,$inlineElsCheck))
+					($el->previousSibling&&($el->previousSibling->nodeName=='TEXT'||in_array($el->previousSibling->nodeName,$inlineElsCheck)))
+					||($el->nextSibling&&($el->nextSibling->nodeName=='TEXT'||in_array($el->nextSibling->nodeName,$inlineElsCheck)))
 				){
 					$id = '{{.-;-:-'.uniqid('translateAggr',true).'-:-;-.}}';
 					$t = (string)$el;
