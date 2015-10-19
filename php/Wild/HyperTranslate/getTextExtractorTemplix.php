@@ -75,6 +75,7 @@ class getTextExtractorTemplix extends getTextExtractor{
 						||($k=='alt'&&$el->nodeName=='img'&&strpos($v,'<?')===false)
 						||($k=='title'&&strpos($v,'<?')===false)
 						||($k=='title'&&strpos($v,'<?')===false)
+						||($k=='value'&&$el->nodeName=='input'&&$el->type=='submit'&&strpos($v,'<?')===false)
 						||strpos($k,'i18n-')
 					)
 				){
