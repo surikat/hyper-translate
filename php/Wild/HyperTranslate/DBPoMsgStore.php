@@ -29,6 +29,6 @@ class DBPoMsgStore {
 		$this->db->put($b);
 	}
 	function read(){
-		return $this->db->getAll("SELECT * FROM message WHERE catalogue_id = ? AND LENGTH(msgstr)>0 AND isObsolete=0 AND noTranslate!=1 ORDER BY msgid COLLATE NOCASE ASC", [$this->id]);
+		return $this->db->getAll("SELECT * FROM message WHERE catalogue_id = ? AND LENGTH(msgstr)>0 AND isObsolete=0 AND noTranslate!=1 GROUP BY msgid ORDER BY msgid COLLATE NOCASE ASC", [$this->id]);
 	}
 }
