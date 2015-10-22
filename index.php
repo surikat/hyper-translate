@@ -4,9 +4,7 @@
 		<meta charset="utf-8">
 		<title>HyperTranslate</title>
 		<link href="css/simple-pagination.css" rel="stylesheet" type="text/css" />
-		<!--
-			<link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
-		-->
+		<link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
 		<link href="img/favicon.png" rel="icon" type="image/x-icon" />
 	</head>
 	<body>
@@ -107,9 +105,7 @@
 		
 		<script src="js/js.pack.js" type="text/javascript"></script>
 		<script type="text/javascript">
-			$js.dev = true;
-			$css.dev = true;
-			
+			//$js.dev = true;
 			$js(true,[
 				'jquery.min',
 				
@@ -124,12 +120,6 @@
 				'simple-pagination',
 				'script',
 			]);
-			$css('style');
-			$css('jquery-ui/core');
-			$css('jquery-ui/button');
-			$css('jquery-ui/resizable');
-			$css('jquery-ui/dialog');
-			$css('jquery-ui/themes/base');
 		</script>
 	</body>
 </html>
