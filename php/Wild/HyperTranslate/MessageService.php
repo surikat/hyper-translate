@@ -81,7 +81,7 @@ class MessageService {
 		return $names;
 	}
 	function getStats($lang,$name){
-		return $this->db->getRow("SELECT c.name,c.id,COUNT(*) as message_count, COALESCE(SUM( ( LENGTH(m.msgstr)>0 OR noTranslate=1 ) ),0) as translated_count FROM catalogue c LEFT JOIN message m ON m.catalogue_id=c.id WHERE c.lang=? AND c.name=? GROUP BY c.id",[$lang,$name]);
+		return $this->db->getRow("SELECT c.name,c.id,COUNT(*) as message_count, COALESCE(SUM( ( LENGTH(m.msgstr)>0 OR noTranslate=1 ) ),0) as translated_count FROM catalogue c LEFT JOIN message m ON m.catalogue_id=c.id WHERE c.lang=? AND c.name=? AND m.isObsolete!=1 GROUP BY c.id",[$lang,$name]);
 	}
 	function updateMessage($id, $comments, $msgstr, $fuzzy, $notranslate){
 		$flags = $fuzzy&&$fuzzy!='false' ? 'fuzzy' : '';
