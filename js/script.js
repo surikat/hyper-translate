@@ -336,12 +336,14 @@ var selectLanguage = function(lang){
 	$(showForLang).show();
 	$('#flags').hide();
 	loadMessages();
+	document.location.hash = lang;
 };
 
 var unSelectLanguage = function(){
 	$('#nav_row,#edit_row').hide();
 	$(showForLang).hide();
 	$('#flags').show();
+	document.location.hash = '';
 };
 
 var getMessages = function(){
@@ -527,12 +529,18 @@ var init = function(){
 		$('#flags tr[data-lang]').click(function(){
 			selectLanguage($(this).attr('data-lang'));
 		});
-		
+		var h = document.location.hash;
+		if(h.substr(0,1)=='#')
+			h = h.substr(1);
+		if(h){
+			selectLanguage(h);
+		}
 	});
 	
 	$('#selected-lang').click(function(){
 		unSelectLanguage();
 	});
+	
 };
 
 init();
