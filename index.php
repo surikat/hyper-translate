@@ -48,7 +48,7 @@
 				<div id="ref_data"></div>
 			</div>
 			<div id="edit_row">
-				<div class="block">
+				<div class="block msgid">
 					<h3 id="orig_str_head">Original String (msgid) <span id="row_id"></span></h3>
 					<div id="msgid" class="data"></div>
 				</div>
