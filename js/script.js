@@ -303,23 +303,19 @@ var loadPagination = function(){
 };
 
 var msgs;
-// Fill the Edit Bar with the selected message
 var fillEditBar = function(index){
 	var msg = msgs[index];
-	if(!msg){
-		console.log(msgs);
-		console.log(index);
-		return;
-	}
-	$('#ref_data').html( nl2br(escape(msg.reference)) || '-' );
-	$('#com_data').html( nl2br(escape(msg.extractedComments)) || '-' );
-	$('#update_data').html( msg.updatedAt || '-' );
-	$('#comments').val(msg.comments);
-	$('#msgid').html( nl2br(escape(msg.msgid)) || "-" );
+	if(!msg) return;
+	$('#ref_data').html( nl2br(escape(msg.reference))+':'+msg.refint );
+	$('#comments').html( nl2br(escape(msg.extractedComments)));
+	$('#update_data').html('- '+msg.updatedAt );
+	$('#msgid').html(nl2br(escape(msg.msgid)));
 	$('#msgstr').val(msg.msgstr?msg.msgstr:'');
-	( msg.fuzzy == 1 ) ? $('#fuzz').prop('checked',true) : $('#fuzz').prop('checked',false);
-	( msg.noTranslate == 1 ) ? $('#notr').prop('checked',true) : $('#notr').prop('checked',false);
-	$('#edit_id').attr( 'value', msg.id );
+	$('#fuzz').prop('checked',msg.fuzzy == 1);
+	$('#notr').prop('checked',msg.noTranslate == 1);
+	$('#depr').prop('checked',msg.isObsolete == 1);
+	$('#row_id').html('- id '+msg.id);
+	$('#row_reference').html(msg.id);
 };
 
 var selectLanguage = function(lang){
@@ -409,34 +405,6 @@ var init = function(){
 		context.sorting = direction?'asc':'desc';
 		context.page = 1;
 		loadMessages();
-	});
-	
-	// Add toggle effect
-	$('#edit_row .block h3 a.expand').click(function(){
-		$(this).parents('.block').find('.data').toggle('fast');
-	}).parents('.block').find('.data').toggle();
-	
-	// Add rollover effect to Side Bar
-	$('body').on('mouseover', '#ref_head',function(){
-		var left = $(this).offset().left;
-		var top = $(this).offset().top + $(this).height() +5;
-		$('#ref_data').css({'left':left, 'top':top}).fadeIn('fast');
-	}).on('mouseout', '#ref_head',function(){
-		$('#ref_data').fadeOut();
-	});
-	$('body').on("mouseover", '#update_head',function(){
-		var left = $(this).offset().left;
-		var top = $(this).offset().top + $(this).height() +5;
-		$('#update_data').css({'left':left, 'top':top}).fadeIn('fast');
-	}).on("mouseout",'#update_head', function(){
-		$('#update_data').fadeOut();
-	});
-	$('body').on("mouseover", '#src_com_head',function(){
-		var left = $(this).offset().left;
-		var top = $(this).offset().top + $(this).height() +5;
-		$('#com_data').css({'left':left, 'top':top}).fadeIn('fast');
-	}).on("mouseout", '#src_com_head',function(){
-		$('#com_data').fadeOut();
 	});
 	
 	$('#clean_obsolete').click(function(e){

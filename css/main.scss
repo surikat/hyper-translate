@@ -193,15 +193,11 @@ a.top_btns{
 		overflow-y:auto;
 	}
 }
-#ref_data, #update_data, #com_data {
-	display:none;
-	position:absolute;
-	text-align:center;
-	font-weight:bold;
-	width:358px;
-	background-color:#FFF;
-	border: 1px solid #555;
-	z-index:200;
+#ref_data{
+	margin-left:15px;
+	margin-right:15px;
+}
+#update_data {
 }
 #next,
 #prev {

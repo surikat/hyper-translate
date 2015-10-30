@@ -45,21 +45,15 @@
 			</div>
 			<div id="nav_row">
 				<input id="return_table" type="image" src="img/return.png"></input>
+				<div id="ref_data"></div>
 			</div>
 			<div id="edit_row">
 				<div class="block">
-					<table id="edit_row_table"><thead><tr>
-					<th id="ref_head">Reference</th>
-					<th id="update_head">Updated on</th>
-					<th id="src_com_head">Source comments</th></tr></thead>
-					</table>
+					<h3 id="orig_str_head">Original String (msgid) <span id="row_id"></span></h3>
+					<div id="msgid" class="data"></div>
 				</div>
 				<div class="block">
-					<h3 id="orig_str_head">Original String (msgid)</h3>
-					<div id="msgid" class="data">-</div>
-				</div>
-				<div class="block">
-					<h3 id="orig_str_head">Translation (msgstr)</h3>
+					<h3 id="orig_str_head">Translation (msgstr) <span id="update_data"></span></h3>
 					<textarea id="msgstr" class="data" spellcheck="false"></textarea>
 				</div>
 				<div class="block" id="cntrl_blk">
@@ -71,15 +65,15 @@
 					<fieldset>
 						<label for="notr">No Translation</label> <input type="checkbox" id="notr" name="notr" /> 
 					</fieldset>
+					<fieldset>
+						<label for="depr">Deprecated</label> <input type="checkbox" id="depr" name="depr" disabled /> 
+					</fieldset>
 				</div>
 				<div class="block">
 					<h3 id="trans_com_head">Translation Comments</h3>
 					<textarea id="comments" class="data" spellcheck="false"></textarea>
 				</div>
 			</div>
-			<div id="ref_data"></div>
-			<div id="update_data"></div>
-			<div id="com_data"></div>
 			
 			<table id="flags">
 				<thead>
@@ -105,7 +99,7 @@
 		
 		<script src="js/js.pack.js" type="text/javascript"></script>
 		<script type="text/javascript">
-			//$js.dev = true;
+			$js.dev = true;
 			$js(true,[
 				'jquery.min',
 				
