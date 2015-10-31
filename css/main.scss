@@ -459,3 +459,16 @@ select{
 #msgstr{
 	min-height:250px;
 }
+
+#pagination{
+	float:left;
+}
+.custom-limit{
+	float:right;
+	maring-left:15px;
+	maring-right:15px;
+	input[type=text]{
+		width:35px;
+	}
+}
+

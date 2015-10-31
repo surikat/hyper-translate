@@ -24,9 +24,8 @@ class MessageService {
 	function getCountMessages($lang,$name){
 		return $this->db->getCell('SELECT COUNT(*) FROM message WHERE catalogue_id = ?',[$this->cat($lang,$name)->id()]);
 	}
-	function getMessages($lang, $name, $page, $order, $sort) {
+	function getMessages($lang, $name, $page, $order, $sort, $limit) {
 		$sort = $sort=='desc'?'desc':'asc';
-		$limit = 15;
 		$offset = ($page-1)*$limit;
 		$msg = $this->db['message']->getClone();
 		

@@ -42,6 +42,13 @@
 					</table>
 				</div>
 				<div id="pagination"></div>
+				<div class="custom-limit">
+					<form>
+						<label for="limit">limit</label>
+						<input type="text" id="limit" name="limit">
+						<input type="submit" value="ok">
+					</form>
+				</div>
 			</div>
 			<div id="nav_row">
 				<input id="return_table" type="image" src="img/return.png"></input>

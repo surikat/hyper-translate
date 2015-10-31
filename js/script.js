@@ -343,7 +343,7 @@ var unSelectLanguage = function(){
 };
 
 var getMessages = function(){
-	messageService('getMessages',[context.lang,context.name,context.page,context.order,context.sorting],function(d){
+	messageService('getMessages',[context.lang,context.name,context.page,context.order,context.sorting,context.limit],function(d){
 		msgs = [];
 		for(var k in d){
 			msgs.push(d[k]);
@@ -507,6 +507,14 @@ var init = function(){
 	
 	$('#selected-lang').click(function(){
 		unSelectLanguage();
+	});
+	
+	$('.custom-limit form input[name=limit]').val(context.limit);
+	$('.custom-limit form').submit(function(e){
+		e.preventDefault();
+		context.limit = $(this).find('input[name=limit]').val();
+		loadMessages();
+		return false;
 	});
 	
 };
