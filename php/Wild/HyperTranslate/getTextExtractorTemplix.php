@@ -25,8 +25,10 @@ class getTextExtractorTemplix extends getTextExtractor{
 					($el->previousSibling&&in_array($el->previousSibling->nodeName,$inlineElsCheck))
 					||($el->nextSibling&&in_array($el->nextSibling->nodeName,$inlineElsCheck))
 				){
-					$id = '{{.-;-:-'.uniqid('translateAggr',true).'-:-;-.}}';
 					$t = (string)$el;
+					if(strpos($t,'<?')!==false)
+						return;
+					$id = '{{.-;-:-'.uniqid('translateAggr',true).'-:-;-.}}';
 					$t = preg_replace('/(?:\s\s+|\n|\t|\r)/', ' ', $t);
 					$aggr[$id] = $t;
 					$el->clear();
