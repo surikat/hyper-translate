@@ -1,8 +1,8 @@
 <?php
 include __DIR__.'/php/Gettext/autoloader.php';
-include __DIR__.'/php/Wild/DataMap/autoload.inc.php';
-//include __DIR__.'/php/Wild/Templix/autoload.inc.php';
-include __DIR__.'/php/Wild/HyperTranslate/autoload.inc.php';
+//include __DIR__.'/php/RedCat/DataMap/autoload.inc.php';
+//include __DIR__.'/php/RedCat/Templix/autoload.inc.php';
+include __DIR__.'/php/Surikat/HyperTranslate/autoload.inc.php';
 
 header('Content-Type: application/json; charset=UTF-8;');
 
@@ -14,9 +14,9 @@ header("Expires: -1");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Cache-Control: no-store, no-cache, must-revalidate");
 
-$cwd = defined('SURIKAT_CWD')?SURIKAT_CWD:'../';
+$cwd = defined('REDCAT_CWD')?REDCAT_CWD:'../';
 chdir($cwd);
-$service = new Wild\HyperTranslate\MessageService();
+$service = new Surikat\HyperTranslate\MessageService();
 $response = ['error'=>null];
 $method = @$_GET['method'];
 $params = (array)@$_POST['params'];

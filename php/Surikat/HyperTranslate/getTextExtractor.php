@@ -1,5 +1,5 @@
 <?php
-namespace Wild\HyperTranslate;
+namespace Surikat\HyperTranslate;
 class getTextExtractor{
 	static function parse($sources,$sourceDir=null){
 		$msg = '';

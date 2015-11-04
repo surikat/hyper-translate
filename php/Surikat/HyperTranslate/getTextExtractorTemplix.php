@@ -1,6 +1,6 @@
 <?php
-namespace Wild\HyperTranslate;
-use Wild\Templix\Markup;
+namespace Surikat\HyperTranslate;
+use RedCat\Templix\Markup;
 class getTextExtractorTemplix extends getTextExtractor{
 	protected static $autoWrapL10n = true;
 	protected static function parseFile($file,$sourceDir=null){

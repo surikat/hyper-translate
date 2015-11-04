@@ -1,14 +1,14 @@
 <?php
-namespace Wild\HyperTranslate;
+namespace Surikat\HyperTranslate;
 use Gettext\Extractors\Po;
-use Wild\DataMap\B;
+use RedCat\DataMap\B;
 class MessageService {
 	var $potfile = 'langs/messages.pot';
 	private $db;
 	private $dbPath;
 	function __construct() {
-		if(defined('SURIKAT_CWD'))
-			$cwd = SURIKAT_CWD;
+		if(defined('REDCAT_CWD'))
+			$cwd = REDCAT_CWD;
 		else
 			$cwd = getcwd().'/';
 		$this->dbPath = $cwd.'langs/hyper-translate.sqlite';
@@ -117,8 +117,8 @@ class MessageService {
 		$pot = Catalogue::headerPots();
 		$pot = str_replace("{ctime}",gmdate('Y-m-d H:iO',is_file($potfile)?filemtime($potfile):time()),$pot);
 		$pot = str_replace("{mtime}",gmdate('Y-m-d H:iO'),$pot);
-		if(defined('SURIKAT_CWD'))
-			$cwd = SURIKAT_CWD;
+		if(defined('REDCAT_CWD'))
+			$cwd = REDCAT_CWD;
 		else
 			$cwd = getcwd();
 		if(is_dir('template')){

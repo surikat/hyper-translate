@@ -1,5 +1,5 @@
 <?php
-namespace Wild\HyperTranslate;
+namespace Surikat\HyperTranslate;
 class DBPoMsgStore {
 	private $db;
 	private $id;

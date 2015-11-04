@@ -110,6 +110,16 @@ a.top_btns{
 #edit_table{
 	float:left;
 }
+#edit_row{
+	z-index:10;
+}
+#nav_row{
+	z-index:11;
+}
+#nav_row,
+#edit_row{
+	position:fixed;
+}
 #edit_row {
 	/*
 	position:absolute;
@@ -131,7 +141,9 @@ a.top_btns{
 		border-right:1px solid #CCC;
 	}
 	.block {
-		margin-bottom:6px;
+	    float: left;
+		margin-bottom: 6px;
+		width: 100%;
 	}
 	.block .data {
 		margin:0;

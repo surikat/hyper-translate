@@ -1,11 +1,11 @@
 <?php
-namespace Wild\HyperTranslate;
+namespace Surikat\HyperTranslate;
 use Gettext\Extractors\PhpCode;
 class getTextExtractorPHP extends getTextExtractor{
 	protected static function parseFile($file,$sourceDir=null){
 		if($sourceDir){
-			if(defined('SURIKAT_CWD'))
-				$cwd = SURIKAT_CWD;
+			if(defined('REDCAT_CWD'))
+				$cwd = REDCAT_CWD;
 			else
 				$cwd = getcwd();
 			chdir($sourceDir);

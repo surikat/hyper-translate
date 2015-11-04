@@ -1,5 +1,5 @@
 <?php
-namespace Wild\HyperTranslate;
+namespace Surikat\HyperTranslate;
 class Po2Mo{
 	static function convert($input, $output=null){
 		if(!isset($output))

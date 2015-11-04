@@ -1,5 +1,5 @@
 <?php
-namespace Wild\HyperTranslate;
+namespace Surikat\HyperTranslate;
 class POParser{
 	var $fileHandle;
 	var $entryStore;

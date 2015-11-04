@@ -4,7 +4,7 @@
 	order:'id',
 	sorting:'asc',
 	name:'messages',
-	limit:15,
+	limit:300,
 };
 var local_names;
 var escape = function(str) {
@@ -129,12 +129,12 @@ var getStats = function(){
 var showForTable = '#edit_table,#nav';
 var showForRow = '#edit_row,#nav_row';
 var editOpen = function(){
-	$(showForTable).hide();
+	$(showForTable).css('visibility','hidden');
 	$(showForRow).show();
 };
 var editClose = function(){	
 	$(showForRow).hide();
-	$(showForTable).show();
+	$(showForTable).css('visibility','visible');
 };
 var countPotMessages = function(){
 	messageService('countPotMessages',[],function(count){
