@@ -60,8 +60,12 @@ class getTextExtractorTemplix extends getTextExtractor{
 		$TML('TEXT:hasnt(PHP)')->each(function($el)use(&$msg,$filename,&$aggrK,&$aggrV,&$i){
 			$t = trim((string)$el);
 			if($t){
-				if(self::$autoWrapL10n)
-					$t = str_replace($aggrK,$aggrV,$t);
+				if(self::$autoWrapL10n){
+					do{
+						$t = str_replace($aggrK,$aggrV,$t);
+					}
+					while(strpos($t,'{{.-;-:-translateAggr')!==false);
+				}
 				if(!$el->parent||$el->parent->nodeName!='pre')
 					$t = preg_replace('/(?:\s\s+|\n|\t|\r)/', ' ', $t);
 				$msg .= "#: $filename:$i\nmsgid ".self::quote($t)."\nmsgstr \"\" \n\n";
