@@ -73,19 +73,22 @@ class getTextExtractorTemplix extends getTextExtractor{
 				$v = trim($v);
 				if($v&&
 					(
-						($k=='href'&&$el->nodeName=='a'&&strpos($v,'://')!==false&&strpos($v,'<?')===false)
-						||($k=='alt'&&$el->nodeName=='img'&&strpos($v,'<?')===false)
-						||($k=='title'&&strpos($v,'<?')===false)
-						||($k=='title'&&strpos($v,'<?')===false)
-						||($k=='value'&&$el->nodeName=='input'&&$el->type=='submit'&&strpos($v,'<?')===false)
-						||($k=='placeholder'&&$el->nodeName=='input'&&strpos($v,'<?')===false)
+						($k=='href'&&$el->nodeName=='a'&&strpos($v,'://')!==false)
+						||($k=='alt'&&$el->nodeName=='img')
+						||($k=='title')
+						||($k=='title')
+						||($k=='value'&&$el->nodeName=='input'&&$el->type=='submit')
+						||($k=='placeholder'&&$el->nodeName=='input')
+						||($k=='content'&&$el->nodeName=='meta'&&$el->attr('name')=='description')
 						||strpos($k,'i18n-')
 					)
 				){
-					if(self::$autoWrapL10n)
-						$v = str_replace($aggrK,$aggrV,$v);
-					$msg .= "#: $filename:$i\nmsgid ".self::quote($v)."\nmsgstr \"\" \n\n";
-					$i++;
+					if(strpos($v,'<?')===false||strpos($k,'i18n-')){
+						if(self::$autoWrapL10n)
+							$v = str_replace($aggrK,$aggrV,$v);
+						$msg .= "#: $filename:$i\nmsgid ".self::quote($v)."\nmsgstr \"\" \n\n";
+						$i++;
+					}
 				}
 			}
 		});
