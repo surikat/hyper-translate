@@ -82,6 +82,10 @@
 				</div>
 			</div>
 			
+			<form class="custom-locale">
+				<label for="lang">Custom Locale</label><input id="lang" name="lang" type="text"><input type="submit" value="Go">
+			</form>
+			
 			<table id="flags">
 				<thead>
 					<th>Flag</th>

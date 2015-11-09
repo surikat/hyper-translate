@@ -40,8 +40,7 @@ a.top_btns{
     top: 10%;
     font-size:2em;
 }
-#body_w {
-	display: block;
+#body_w {	display: block;
 	float: left;
 	margin: 0;
 	position: relative;
@@ -370,6 +369,7 @@ a.top_btns{
 	margin-right:12px;
     display: block;
     float: left;
+    clear:both;
     padding: 2px;
 	text-align: left;
 	tr[data-lang]{
@@ -484,3 +484,19 @@ select{
 	}
 }
 
+.custom-locale{
+	float:left;
+	clear:both;
+	margin-top:2px;
+	margin-bottom:2px;
+	margin-left:12px;
+	margin-right:12px;
+    display: block;
+    padding: 2px;
+	text-align: left;
+	>label{
+	}
+	>input{
+		margin-left:1em;
+	}
+}

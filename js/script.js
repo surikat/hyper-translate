@@ -109,6 +109,8 @@ var getCatalogues = function(){
 };
 var getStats = function(){
 	messageService('getStats', [context.lang,context.name], function(cat){
+		if(!cat)
+			return;
 		if(cat.message_count)
 			cat.message_count = cat.message_count;
 		var owidth = $('.progressbar').data('width');
@@ -320,7 +322,16 @@ var fillEditBar = function(index){
 
 var selectLanguage = function(lang){
 	context.lang = lang;
-	$('#selected-lang').html('<img width="16" height="16" src="img/langs/'+lang+'.png" /> '+local_names[lang]);
+	var img,name;
+	if(typeof(local_names[lang])!='undefined'){
+		img = 'langs/'+lang;
+		name = local_names[lang];
+	}
+	else{
+		img = 'favicon';
+		name = lang;
+	}
+	$('#selected-lang').html('<img width="16" height="16" src="img/'+img+'.png" /> '+name);
 	var title = $('title');
 	var originTitle = title.data('title');
 	if(!originTitle){
@@ -328,7 +339,7 @@ var selectLanguage = function(lang){
 		title.data('title',originTitle);
 	}
 	title.text(originTitle+' - '+local_names[lang]);
-	$('link[rel=icon]').attr('href','img/langs/'+lang+'.png');
+	$('link[rel=icon]').attr('href','img/'+img+'.png');
 	$(showForLang).show();
 	$('#flags').hide();
 	loadMessages();
@@ -514,6 +525,12 @@ var init = function(){
 		e.preventDefault();
 		context.limit = $(this).find('input[name=limit]').val();
 		loadMessages();
+		return false;
+	});
+	
+	$('form.custom-locale').submit(function(e){
+		e.preventDefault();
+		selectLanguage($(this).find('input#lang').val());
 		return false;
 	});
 	
