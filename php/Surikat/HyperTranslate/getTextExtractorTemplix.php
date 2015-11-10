@@ -80,7 +80,6 @@ class getTextExtractorTemplix extends getTextExtractor{
 						($k=='href'&&$el->nodeName=='a'&&strpos($v,'://')!==false)
 						||($k=='alt'&&$el->nodeName=='img')
 						||($k=='title')
-						||($k=='title')
 						||($k=='value'&&$el->nodeName=='input'&&$el->type=='submit')
 						||($k=='placeholder'&&$el->nodeName=='input')
 						||($k=='content'&&$el->nodeName=='meta'&&$el->attr('name')=='description')
