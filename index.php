@@ -42,6 +42,13 @@
 					</table>
 				</div>
 				<div id="pagination"></div>
+				<div class="custom-page">
+					<form>
+						<label for="page">page</label>
+						<input type="text" id="page" name="page">
+						<input type="submit" value="Go">
+					</form>
+				</div>
 				<div class="custom-limit">
 					<form>
 						<label for="limit">limit</label>

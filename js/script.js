@@ -528,6 +528,15 @@ var init = function(){
 		return false;
 	});
 	
+	$('.custom-page form input[name=page]').val(context.page);
+	$('.custom-page form').submit(function(e){
+		e.preventDefault();
+		context.page = $(this).find('input[name=page]').val();
+		getMessages();
+		$('#pagination').pagination('selectPage',context.page);
+		return false;
+	});
+	
 	$('form.custom-locale').submit(function(e){
 		e.preventDefault();
 		selectLanguage($(this).find('input#lang').val());
