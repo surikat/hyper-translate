@@ -82,6 +82,9 @@
 					<fieldset>
 						<label for="depr">Deprecated</label> <input type="checkbox" id="depr" name="depr" disabled /> 
 					</fieldset>
+					<fieldset>
+						<input type="button" id="copy" name="copy" value="Copy from original" /> 
+					</fieldset>
 				</div>
 				<div class="block">
 					<h3 id="trans_com_head">Translation Comments</h3>

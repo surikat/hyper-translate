@@ -205,9 +205,18 @@ var moveBy = function(num){
 	}
 };
 
+var copyDisplay = function(){
+	if($('#msgstr').val()==''){
+		$('input[name=copy]').show();
+	}
+	else{
+		$('input[name=copy]').hide();		
+	}
+};
 var selectMessage = function(index){
 	$('#msg_table tbody tr.selected').removeClass('selected');
 	$('#msg_table tbody tr:eq(' +(index)+ ')').addClass('selected');
+	copyDisplay();
 	editOpen();
 	fillEditBar(index);
 };
@@ -542,7 +551,14 @@ var init = function(){
 		selectLanguage($(this).find('input#lang').val());
 		return false;
 	});
-	
+	$('input[name=copy]').click(function(e){
+		e.preventDefault();
+		$('#msgstr').val($('#msgid').text());
+		return false;
+	});
+	$('#msgstr').change(function(){
+		copyDisplay();
+	});
 };
 
 init();
