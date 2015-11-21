@@ -219,6 +219,7 @@ var selectMessage = function(index){
 	copyDisplay();
 	editOpen();
 	fillEditBar(index);
+	CKEDITOR.instances['msgstr'].setData($("#msgstr").val());
 };
 
 var getCurrentMessage = function(){
@@ -558,6 +559,28 @@ var init = function(){
 	});
 	$('#msgstr').change(function(){
 		copyDisplay();
+	});
+	
+	$js('./plugin/ckeditor/ckeditor.js',function(){
+		CKEDITOR.replace('msgstr');
+		$("#msgstr").change(function(){
+			CKEDITOR.instances['msgstr'].setData($("#msgstr").val());
+		});
+		var CK_jQ = function(){
+			CKEDITOR.instances['msgstr'].updateElement();
+		};
+		CKEDITOR.instances['msgstr'].on('blur', function(){
+			CKEDITOR.instances['msgstr'].updateElement();
+			beforeBlur();
+		});
+		CKEDITOR.on('instanceReady', function(){
+			CKEDITOR.instances['msgstr'].on('instanceReady', function(){
+				this.document.on("keyup", CK_jQ);
+				this.document.on("paste", CK_jQ);
+				this.document.on("keypress", CK_jQ);
+				this.document.on("change", CK_jQ);
+			});
+		});
 	});
 };
 
