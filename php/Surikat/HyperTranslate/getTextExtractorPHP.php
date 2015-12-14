@@ -4,8 +4,8 @@ use Gettext\Extractors\PhpCode;
 class getTextExtractorPHP extends getTextExtractor{
 	protected static function parseFile($file,$sourceDir=null){
 		if($sourceDir){
-			if(defined('REDCAT_CWD'))
-				$cwd = REDCAT_CWD;
+			if(defined('REDCAT_PUBLIC'))
+				$cwd = REDCAT_PUBLIC;
 			else
 				$cwd = getcwd();
 			chdir($sourceDir);

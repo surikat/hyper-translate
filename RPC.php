@@ -14,7 +14,7 @@ header("Expires: -1");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Cache-Control: no-store, no-cache, must-revalidate");
 
-$cwd = defined('REDCAT_CWD')?REDCAT_CWD:'../';
+$cwd = defined('REDCAT_PUBLIC')?REDCAT_PUBLIC:'../';
 chdir($cwd);
 $service = new Surikat\HyperTranslate\MessageService();
 $response = ['error'=>null];

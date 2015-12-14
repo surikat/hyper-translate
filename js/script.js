@@ -478,8 +478,11 @@ var init = function(){
 	});
 	$(document).keydown(function(e){
 		var nt = e.target.type,code;
+		code = e.which || e.keyCode;
+		if(code==27&&$('#return_table').is(':visible')){ //escape
+			$('#return_table').click();
+		}
 		if( !(nt == 'input' || nt == 'textarea') ) {
-			code = e.which || e.keyCode;
 			switch(e.which || e.keyCode) {
 				case 37:
 				case 38:

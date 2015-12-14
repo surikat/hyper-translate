@@ -7,8 +7,8 @@ class MessageService {
 	private $db;
 	private $dbPath;
 	function __construct() {
-		if(defined('REDCAT_CWD'))
-			$cwd = REDCAT_CWD;
+		if(defined('REDCAT_PUBLIC'))
+			$cwd = REDCAT_PUBLIC;
 		else
 			$cwd = getcwd().'/';
 		$this->dbPath = $cwd.'langs/hyper-translate.sqlite';
@@ -117,8 +117,8 @@ class MessageService {
 		$pot = Catalogue::headerPots();
 		$pot = str_replace("{ctime}",gmdate('Y-m-d H:iO',is_file($potfile)?filemtime($potfile):time()),$pot);
 		$pot = str_replace("{mtime}",gmdate('Y-m-d H:iO'),$pot);
-		if(defined('REDCAT_CWD'))
-			$cwd = REDCAT_CWD;
+		if(defined('REDCAT_PUBLIC'))
+			$cwd = REDCAT_PUBLIC;
 		else
 			$cwd = getcwd();
 		if(is_dir('template')){
